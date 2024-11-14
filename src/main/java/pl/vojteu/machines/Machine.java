@@ -1,15 +1,15 @@
-package pl.vojteu;
+package pl.vojteu.machines;
 
+// child classes chair machine itd
 
 public class Machine {
     private Long id;
     private String name;
-    private String machineType;
     private String status;
 
-    public Machine(String name, String machineType, String status) {
+    public Machine(Long id, String name, String status) {
+        this.id = id;
         this.name = name;
-        this.machineType = machineType;
         this.status = status;
     }
 
@@ -27,14 +27,6 @@ public class Machine {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getMachineType() {
-        return machineType;
-    }
-
-    public void setMachineType(String machineType) {
-        this.machineType = machineType;
     }
 
     public String getStatus() {

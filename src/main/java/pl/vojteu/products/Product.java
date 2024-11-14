@@ -1,15 +1,16 @@
-package pl.vojteu;
+package pl.vojteu.products;
 
-public class Material {
+public class Product {
     private Long id;
     private String name;
     private Double price;
-    private String unit;
+    private Double manufacturingCost;
 
-    public Material(String name, Double price, String unit) {
+    public Product(Long id, String name, Double price, Double manufacturingCost) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.unit = unit;
+        this.manufacturingCost = manufacturingCost;
     }
 
     public Long getId() {
@@ -36,11 +37,11 @@ public class Material {
         this.price = price;
     }
 
-    public String getUnit() {
-        return unit;
+    public Double getManufacturingCost() {
+        return manufacturingCost;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setManufacturingCost(Double manufacturingCost) {
+        this.manufacturingCost = manufacturingCost;
     }
 }
