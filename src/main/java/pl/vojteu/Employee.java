@@ -1,13 +1,14 @@
 package pl.vojteu;
 
-public class Employees {
+public class Employee {
     private Long id;
     private String name;
     private String surname;
     private Address address;
     private Department department;
 
-    public Employees(String name, String surname, Address address, Department department) {
+    public Employee(Long id, String name, String surname, Address address, Department department) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -52,5 +53,16 @@ public class Employees {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address=" + address +
+                ", department=" + department +
+                '}';
     }
 }

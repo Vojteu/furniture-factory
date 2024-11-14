@@ -44,4 +44,14 @@ public class Company {
     public void setAboutUs(String aboutUs) {
         this.aboutUs = aboutUs;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "address=" + address +
+                ", aboutUs='" + aboutUs + '\'' +
+                ", ownerName='" + ownerName + '\'' +
+                ", ownerSurname='" + ownerSurname + '\'' +
+                '}';
+    }
 }

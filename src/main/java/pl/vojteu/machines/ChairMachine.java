@@ -5,7 +5,8 @@ public class ChairMachine extends Machine{
         super(id, name, status);
     }
 
-    void buildChair(){
-
+    @Override
+    public void build() {
+        System.out.println("build chair");
     }
 }

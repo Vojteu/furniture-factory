@@ -1,10 +1,12 @@
-package pl.vojteu;
+package pl.vojteu.materials;
 
-public class Material {
+public abstract class Material {
     private Long id;
     private String name;
     private Double price;
     private String unit;
+
+    protected abstract void description();
 
     public Material(String name, Double price, String unit) {
         this.name = name;

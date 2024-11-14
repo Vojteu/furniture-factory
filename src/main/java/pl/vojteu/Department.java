@@ -1,12 +1,16 @@
 package pl.vojteu;
 
+import java.util.Arrays;
+
 public class Department {
     private Long id;
     private String name;
-    private Employees[]  employees;
+    private Employee[]  employees;
 
-    public Department(String name) {
+    public Department(Long id, String name, Employee[] employees) {
+        this.id = id;
         this.name = name;
+        this.employees = employees;
     }
 
     public Long getId() {
@@ -25,11 +29,20 @@ public class Department {
         this.name = name;
     }
 
-    public Employees[] getEmployees() {
+    public Employee[] getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employees[] employees) {
+    public void setEmployees(Employee[] employees) {
         this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employees=" + Arrays.toString(employees) +
+                '}';
     }
 }

@@ -1,16 +1,23 @@
 package pl.vojteu.products;
 
-public class Product {
+public abstract class Product {
     private Long id;
     private String name;
     private Double price;
-    private Double manufacturingCost;
+    private Double manufacturingFactor;
 
-    public Product(Long id, String name, Double price, Double manufacturingCost) {
+    protected abstract void description();
+    protected abstract Double calculateManufacturingCost();
+
+    public Product(Long id, String name, Double price) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.manufacturingCost = manufacturingCost;
+    }
+
+    public Product(Long id, String name, Double price, Double manufacturingFactor) {
+        this(id, name, price);
+        this.manufacturingFactor = manufacturingFactor;
     }
 
     public Long getId() {
@@ -37,11 +44,11 @@ public class Product {
         this.price = price;
     }
 
-    public Double getManufacturingCost() {
-        return manufacturingCost;
+    public Double getManufacturingFactor() {
+        return manufacturingFactor;
     }
 
-    public void setManufacturingCost(Double manufacturingCost) {
-        this.manufacturingCost = manufacturingCost;
+    public void setManufacturingFactor(Double manufacturingFactor) {
+        this.manufacturingFactor = manufacturingFactor;
     }
 }

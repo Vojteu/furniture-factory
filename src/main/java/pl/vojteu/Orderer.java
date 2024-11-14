@@ -1,12 +1,13 @@
 package pl.vojteu;
 
-public class Customer {
+public class Orderer {
     private Long id;
     private String name;
     private String surname;
     private Address address;
 
-    public Customer(String name, String surname, Address address) {
+    public Orderer(Long id, String name, String surname, Address address) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -43,4 +44,14 @@ public class Customer {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Orderer{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", surname='" + surname + '\'' +
+//                ", address=" + address +
+//                '}';
+//    }
 }

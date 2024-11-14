@@ -1,12 +1,20 @@
 package pl.vojteu;
 
+import pl.vojteu.materials.Material;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Inventory {
     private Long id;
     private Material material;
     private Integer quantity;
+    private ArrayList<Material> arrayOfMaterials;
     private LocalDate lastUpdated;
+
+    public Inventory() {
+
+    }
 
     public Inventory(Long id, String name, LocalDate lastUpdated, Material material, Integer quantity) {
         this.id = id;
@@ -45,5 +53,24 @@ public class Inventory {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public ArrayList<Material> getArrayOfMaterials() {
+        return arrayOfMaterials;
+    }
+
+    public void setArrayOfMaterials(ArrayList<Material> arrayOfMaterials) {
+        this.arrayOfMaterials = arrayOfMaterials;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "id=" + id +
+                ", material=" + material +
+                ", quantity=" + quantity +
+                ", arrayOfMaterials=" + arrayOfMaterials +
+                ", lastUpdated=" + lastUpdated +
+                '}';
     }
 }

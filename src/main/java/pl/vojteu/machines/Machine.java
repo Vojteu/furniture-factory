@@ -1,11 +1,11 @@
 package pl.vojteu.machines;
 
-// child classes chair machine itd
-
-public class Machine {
+public abstract class Machine {
     private Long id;
     private String name;
     private String status;
+
+    protected abstract void build();
 
     public Machine(Long id, String name, String status) {
         this.id = id;
