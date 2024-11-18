@@ -7,10 +7,9 @@ public class Department {
     private String name;
     private Employee[]  employees;
 
-    public Department(Long id, String name, Employee[] employees) {
+    public Department(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.employees = employees;
     }
 
     public Long getId() {

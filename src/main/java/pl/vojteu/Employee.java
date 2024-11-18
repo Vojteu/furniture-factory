@@ -5,14 +5,12 @@ public class Employee {
     private String name;
     private String surname;
     private Address address;
-    private Department department;
 
-    public Employee(Long id, String name, String surname, Address address, Department department) {
+    public Employee(Long id, String name, String surname, Address address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.address = address;
-        this.department = department;
     }
 
     public Long getId() {
@@ -47,14 +45,6 @@ public class Employee {
         this.address = address;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
     @Override
     public String toString() {
         return "Employees{" +
@@ -62,7 +52,6 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address=" + address +
-                ", department=" + department +
                 '}';
     }
 }

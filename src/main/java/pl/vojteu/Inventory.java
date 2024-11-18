@@ -3,24 +3,22 @@ package pl.vojteu;
 import pl.vojteu.materials.Material;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Inventory {
     private Long id;
-    private Material material;
-    private Integer quantity;
-    private ArrayList<Material> arrayOfMaterials;
+    public static Map<Material, Integer> materials;
     private LocalDate lastUpdated;
 
     public Inventory() {
-
+        materials = new HashMap<>();
     }
 
-    public Inventory(Long id, String name, LocalDate lastUpdated, Material material, Integer quantity) {
+    public Inventory(Long id, LocalDate lastUpdated) {
         this.id = id;
-        this.material = material;
-        this.quantity = quantity;
         this.lastUpdated = lastUpdated;
+        materials = new HashMap<>();
     }
 
     public Long getId() {
@@ -39,37 +37,30 @@ public class Inventory {
         this.lastUpdated = lastUpdated;
     }
 
-    public Material getMaterial() {
-        return material;
+    public static Map<Material, Integer> getMaterials() {
+        return materials;
     }
 
-    public void setMaterial(Material material) {
-        this.material = material;
+    public void addMaterial(Material material, int quantity) {
+        materials.put(material, materials.getOrDefault(material, 0) + quantity);
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public void updateQuantity(Material material, int quantity) {
+        materials.put(material, quantity);
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public ArrayList<Material> getArrayOfMaterials() {
-        return arrayOfMaterials;
-    }
-
-    public void setArrayOfMaterials(ArrayList<Material> arrayOfMaterials) {
-        this.arrayOfMaterials = arrayOfMaterials;
-    }
+//    public void getCurrentStock() {
+//        System.out.println("The current stock of materials is:");
+//        for(Material material : materials.keySet() ){
+//            System.out.println(material.getName() + " " +
+//                    materials.getOrDefault(material, 0) + " " + material.getUnit());
+//        }
+//    }
 
     @Override
     public String toString() {
         return "Inventory{" +
                 "id=" + id +
-                ", material=" + material +
-                ", quantity=" + quantity +
-                ", arrayOfMaterials=" + arrayOfMaterials +
                 ", lastUpdated=" + lastUpdated +
                 '}';
     }

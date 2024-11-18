@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Chair extends Product {
 
-    String chairKind;
+    private String chairKind;
 
     public Chair(Long id, String name, Double price, Double manufacturingFactor,  String chairKind) {
         super(id, name, price, manufacturingFactor);

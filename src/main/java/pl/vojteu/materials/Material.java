@@ -8,7 +8,8 @@ public abstract class Material {
 
     protected abstract void description();
 
-    public Material(String name, Double price, String unit) {
+    public Material(Long id, String name, Double price, String unit) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.unit = unit;
@@ -44,5 +45,15 @@ public abstract class Material {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", unit='" + unit + '\'' +
+                '}';
     }
 }

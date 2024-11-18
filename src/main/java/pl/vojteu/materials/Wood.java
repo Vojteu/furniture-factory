@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Wood extends Material {
     String woodKind;
 
-    public Wood(String name, Double price, String unit, String woodKind) {
-        super(name, price, unit);
+    public Wood(Long id, String name, Double price, String unit, String woodKind) {
+        super(id, name, price, unit);
         this.woodKind = woodKind;
     }
 
@@ -25,9 +25,12 @@ public class Wood extends Material {
 
     @Override
     public String toString() {
-        return "Wood{" +
-                "woodKind='" + woodKind + '\'' +
-                '}';
+        return "{id=" + super.getId() +
+                ", name='" + super.getName() + '\'' +
+                ", price='" + super.getPrice() + '\'' +
+                ", unit=" + super.getUnit() + '\'' +
+                ", woodKind='" + woodKind + '\'' +
+                "}";
     }
 
     @Override
