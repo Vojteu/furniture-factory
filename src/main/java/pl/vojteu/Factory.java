@@ -1,5 +1,6 @@
 package pl.vojteu;
 
+import pl.vojteu.interfaces.Adjustable;
 import pl.vojteu.materials.Material;
 import pl.vojteu.products.Product;
 
@@ -16,7 +17,7 @@ public class Factory {
     }
 
     void countProductCapacity(){
-
+        Adjustable adjustable;
     }
 
     void countProductManufacturingTime(Product product, Long Quantity){

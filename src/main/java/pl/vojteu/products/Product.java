@@ -1,10 +1,13 @@
 package pl.vojteu.products;
 
+import pl.vojteu.Location;
+
 public abstract class Product {
     private Long id;
     private String name;
     private Double price;
     private Double manufacturingFactor;
+    private Location location;
 
     protected abstract void description();
     protected abstract Double calculateManufacturingCost();
@@ -50,5 +53,13 @@ public abstract class Product {
 
     public void setManufacturingFactor(Double manufacturingFactor) {
         this.manufacturingFactor = manufacturingFactor;
+    }
+
+    public Location getPoint() {
+        return location;
+    }
+
+    public void setPoint(Location location) {
+        this.location = location;
     }
 }

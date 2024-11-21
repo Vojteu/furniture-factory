@@ -1,8 +1,21 @@
 package pl.vojteu.machines;
 
-public class ChairMachine extends Machine{
+import pl.vojteu.Location;
+import pl.vojteu.interfaces.Movable;
+
+public class ChairMachine extends Machine implements Movable {
     public ChairMachine(Long id, String name, String status) {
         super(id, name, status);
+    }
+
+    @Override
+    public void moveProductTo(Location location) {
+
+    }
+
+    @Override
+    public void moveMachineTo(Location location) {
+
     }
 
     @Override
