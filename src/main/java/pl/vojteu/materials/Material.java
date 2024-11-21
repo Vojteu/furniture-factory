@@ -1,14 +1,17 @@
 package pl.vojteu.materials;
 
+import java.math.BigDecimal;
+
 public abstract class Material {
     private Long id;
     private String name;
-    private Double price;
+    private BigDecimal price;
     private String unit;
+    private BigDecimal exchangeRate;
 
     protected abstract void description();
 
-    public Material(Long id, String name, Double price, String unit) {
+    public Material(Long id, String name, BigDecimal price, String unit) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -31,11 +34,11 @@ public abstract class Material {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -45,6 +48,14 @@ public abstract class Material {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public BigDecimal getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(BigDecimal exchangeRate) {
+        this.exchangeRate = exchangeRate;
     }
 
     @Override

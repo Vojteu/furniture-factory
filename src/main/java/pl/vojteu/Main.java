@@ -9,6 +9,8 @@ import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         Address companyAddress = new Address("Olkiewicza", "66", "Warsaw", "Masovian");
@@ -28,8 +30,8 @@ public class Main {
 
         System.out.println(department1);
 
-        Material material1 = new Wood(1L,"Wood", 1.0, "kg", "oak");
-        Material material2 = new Glue(2L,"Glue", 1.0, "ml", "Wood glue");
+        Material material1 = new Wood(1L,"Wood", new BigDecimal(1), "kg", "oak");
+        Material material2 = new Glue(2L,"Glue", new BigDecimal(1), "ml", "Wood glue");
 
         System.out.println();
         Inventory inventory = new Inventory();

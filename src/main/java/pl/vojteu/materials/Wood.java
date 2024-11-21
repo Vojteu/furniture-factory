@@ -1,11 +1,14 @@
 package pl.vojteu.materials;
 
+import pl.vojteu.interfaces.MaterialManager;
+
+import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Wood extends Material {
+public class Wood extends Material implements MaterialManager {
     String woodKind;
 
-    public Wood(Long id, String name, Double price, String unit, String woodKind) {
+    public Wood(Long id, String name, BigDecimal price, String unit, String woodKind) {
         super(id, name, price, unit);
         this.woodKind = woodKind;
     }
@@ -21,6 +24,11 @@ public class Wood extends Material {
     @Override
     protected void description() {
         System.out.println("Wood description");
+    }
+
+    @Override
+    public void adjustPrice(BigDecimal exchangeRate) {
+        setPrice((getPrice()).multiply(exchangeRate));
     }
 
     @Override

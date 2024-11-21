@@ -1,9 +1,13 @@
 package pl.vojteu.materials;
 
-public class Glue extends Material{
+import pl.vojteu.interfaces.MaterialManager;
+
+import java.math.BigDecimal;
+
+public class Glue extends Material implements MaterialManager {
     String glueType;
 
-    public Glue(Long id, String name, Double price, String unit, String glueType) {
+    public Glue(Long id, String name, BigDecimal price, String unit, String glueType) {
         super(id, name, price, unit);
         this.glueType = glueType;
     }
@@ -19,6 +23,11 @@ public class Glue extends Material{
     @Override
     protected void description() {
         System.out.println("Glue description");
+    }
+
+    @Override
+    public void adjustPrice(BigDecimal exchangeRate) {
+        setPrice((getPrice()).multiply(exchangeRate));
     }
 
     @Override
