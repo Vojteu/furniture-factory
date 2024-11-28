@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Factory {
 
-    public void getCurrentStock(Map<Material, Integer> materialsMap) {
+    public static void getCurrentStock(Map<Material, Integer> materialsMap) {
         System.out.println("The current stock of materials is:");
         for(Material material : materialsMap.keySet() ){
             System.out.println(material.getName() + " " +

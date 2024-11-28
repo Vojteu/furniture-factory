@@ -1,5 +1,9 @@
 package pl.vojteu;
 
+import pl.vojteu.customizations.Circle;
+import pl.vojteu.customizations.Rectangle;
+import pl.vojteu.customizations.ShapeCustomization;
+import pl.vojteu.interfaces.Shape;
 import pl.vojteu.materials.Glue;
 import pl.vojteu.materials.Material;
 import pl.vojteu.materials.Wood;
@@ -58,6 +62,12 @@ public class Main {
 
         System.out.println(order1);
         System.out.println(order2);
+
+        Shape circleSeat = new Circle();
+        Shape rectangleSeat = new Rectangle();
+
+        ShapeCustomization seatPreference = new ShapeCustomization(circleSeat);
+        seatPreference.createSeat(circleSeat);
 
     }
 }

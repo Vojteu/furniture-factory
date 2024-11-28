@@ -32,6 +32,11 @@ public class Wood extends Material implements MaterialManager {
     }
 
     @Override
+    public void whoIsSupplier(Material material) {
+
+    }
+
+    @Override
     public String toString() {
         return "{id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +

@@ -1,6 +1,7 @@
 package pl.vojteu.materials;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 public abstract class Material {
     private Long id;
@@ -8,6 +9,7 @@ public abstract class Material {
     private BigDecimal price;
     private String unit;
     private BigDecimal exchangeRate;
+    private Map<String, String> materialSuppliers;
 
     protected abstract void description();
 
@@ -56,6 +58,14 @@ public abstract class Material {
 
     public void setExchangeRate(BigDecimal exchangeRate) {
         this.exchangeRate = exchangeRate;
+    }
+
+    public Map<String, String> getMaterialSuppliers() {
+        return materialSuppliers;
+    }
+
+    public void setMaterialSuppliers(Map<String, String> materialSuppliers) {
+        this.materialSuppliers = materialSuppliers;
     }
 
     @Override

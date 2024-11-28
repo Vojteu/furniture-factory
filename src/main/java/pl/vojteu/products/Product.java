@@ -1,6 +1,7 @@
 package pl.vojteu.products;
 
 import pl.vojteu.Location;
+import pl.vojteu.materials.Material;
 
 public abstract class Product {
     private Long id;
@@ -8,6 +9,10 @@ public abstract class Product {
     private Double price;
     private Double manufacturingFactor;
     private Location location;
+    private Double height;
+    private Double width;
+    private Material material;
+    private String color;
 
     protected abstract void description();
     protected abstract Double calculateManufacturingCost();
@@ -55,11 +60,43 @@ public abstract class Product {
         this.manufacturingFactor = manufacturingFactor;
     }
 
-    public Location getPoint() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setPoint(Location location) {
+    public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public Double getWidth() {
+        return width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

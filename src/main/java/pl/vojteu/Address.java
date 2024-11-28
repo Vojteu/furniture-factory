@@ -1,6 +1,6 @@
 package pl.vojteu;
 
-public class Address {
+public final class Address {
     private String streetName;
     private String streetNumber;
     private String city;

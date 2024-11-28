@@ -21,6 +21,11 @@ public class Glue extends Material implements MaterialManager {
     }
 
     @Override
+    public void whoIsSupplier(Material material) {
+
+    }
+
+    @Override
     protected void description() {
         System.out.println("Glue description");
     }
