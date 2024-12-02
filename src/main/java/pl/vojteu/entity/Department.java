@@ -1,11 +1,11 @@
 package pl.vojteu.entity;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Department {
     private Long id;
     private String name;
-    private Employee[]  employees;
+    private List<Employee> employeeList;
 
     public Department(Long id, String name) {
         this.id = id;
@@ -28,12 +28,12 @@ public class Department {
         this.name = name;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Department {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", employees=" + Arrays.toString(employees) +
+                ", employeeList=" + employeeList +
                 '}';
     }
 }

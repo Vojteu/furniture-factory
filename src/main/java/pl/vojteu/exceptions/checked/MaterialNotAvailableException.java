@@ -1,4 +1,4 @@
-package pl.vojteu.exceptions;
+package pl.vojteu.exceptions.checked;
 
 //checked exception
 

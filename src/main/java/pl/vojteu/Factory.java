@@ -1,8 +1,9 @@
 package pl.vojteu;
 
-import pl.vojteu.exceptions.MaterialAlreadyExistsException;
-import pl.vojteu.exceptions.MaterialNotAvailableException;
+import pl.vojteu.exceptions.checked.MaterialAlreadyExistsException;
+import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
 import pl.vojteu.materials.Material;
+import pl.vojteu.products.Product;
 import pl.vojteu.stock.Inventory;
 
 import java.io.BufferedReader;
@@ -25,11 +26,11 @@ public class Factory {
         }
     }
 
-    public void useMaterial(Material material, int quantity, Inventory materialInventory) throws MaterialNotAvailableException {
-        if (!(materialInventory.getMaterials()).containsKey(material) || (materialInventory.getMaterials()).get(material) < quantity) {
+    public void useMaterial(Material material, int quantity, Map<Material, Integer> materialInventory) throws MaterialNotAvailableException {
+        if (!materialInventory.containsKey(material) || materialInventory.get(material) < quantity) {
             throw new MaterialNotAvailableException("Material '" + material + "' is not available or insufficient.");
         }
-        (materialInventory.getMaterials()).put(material, materialInventory.getMaterials().get(material) - quantity);
+        materialInventory.put(material, materialInventory.get(material) - quantity);
         System.out.println("Material '" + material + "' used: " + quantity + " units.");
     }
 
