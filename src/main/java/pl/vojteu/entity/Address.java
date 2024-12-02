@@ -1,4 +1,4 @@
-package pl.vojteu.utils;
+package pl.vojteu.entity;
 
 public final class Address {
     private String streetName;

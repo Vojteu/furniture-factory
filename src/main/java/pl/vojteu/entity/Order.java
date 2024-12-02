@@ -1,7 +1,5 @@
-package pl.vojteu.orders;
+package pl.vojteu.entity;
 
-
-import pl.vojteu.utils.Orderer;
 
 public class Order {
     private Long id;

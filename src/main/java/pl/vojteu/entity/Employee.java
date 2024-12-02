@@ -1,12 +1,12 @@
-package pl.vojteu.utils;
+package pl.vojteu.entity;
 
-public class Orderer {
+public class Employee {
     private Long id;
     private String name;
     private String surname;
     private Address address;
 
-    public Orderer(Long id, String name, String surname, Address address) {
+    public Employee(Long id, String name, String surname, Address address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -45,13 +45,13 @@ public class Orderer {
         this.address = address;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Orderer{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", surname='" + surname + '\'' +
-//                ", address=" + address +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }

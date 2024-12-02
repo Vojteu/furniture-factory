@@ -1,4 +1,4 @@
-package pl.vojteu.utils;
+package pl.vojteu.entity;
 
 public class Company {
     private Address address;

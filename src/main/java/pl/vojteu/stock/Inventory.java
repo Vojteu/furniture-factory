@@ -1,4 +1,4 @@
-package pl.vojteu.utils;
+package pl.vojteu.stock;
 
 import pl.vojteu.materials.Material;
 

@@ -3,9 +3,10 @@ package pl.vojteu;
 import pl.vojteu.exceptions.MaterialAlreadyExistsException;
 import pl.vojteu.exceptions.MaterialNotAvailableException;
 import pl.vojteu.materials.Material;
-import pl.vojteu.utils.Inventory;
+import pl.vojteu.stock.Inventory;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
@@ -47,16 +48,20 @@ public class Factory {
         }
     }
 
-    public static String readNoteFile(String path) throws IOException {
+    public static String readNoteFile(String path) throws IOException, FileNotFoundException {
         FileReader fr = new FileReader(path);
         BufferedReader br = new BufferedReader(fr);
 
         try {
             return br.readLine();
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         finally {
             br.close();
             fr.close();
         }
+        return path;
     }
 }
