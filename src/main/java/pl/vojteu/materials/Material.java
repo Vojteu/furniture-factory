@@ -1,6 +1,7 @@
 package pl.vojteu.materials;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 public abstract class Material {
@@ -10,6 +11,7 @@ public abstract class Material {
     private String unit;
     private BigDecimal exchangeRate;
     private Map<String, String> materialSuppliers;
+    private LocalDateTime createdAt;
 
     protected abstract void description();
 
@@ -66,6 +68,14 @@ public abstract class Material {
 
     public void setMaterialSuppliers(Map<String, String> materialSuppliers) {
         this.materialSuppliers = materialSuppliers;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override

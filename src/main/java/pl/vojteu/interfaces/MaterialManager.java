@@ -1,6 +1,5 @@
 package pl.vojteu.interfaces;
 
-import pl.vojteu.Supplier;
 import pl.vojteu.materials.Material;
 
 import java.math.BigDecimal;

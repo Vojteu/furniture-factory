@@ -1,9 +1,9 @@
 package pl.vojteu.orders;
 
-import pl.vojteu.Orderer;
 import pl.vojteu.products.Product;
+import pl.vojteu.utils.Orderer;
 
-public class RetailerOrder extends Order {
+public final class RetailerOrder extends Order {
 
     private Product product;
 

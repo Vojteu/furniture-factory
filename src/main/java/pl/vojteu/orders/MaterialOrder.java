@@ -1,9 +1,9 @@
 package pl.vojteu.orders;
 
 import pl.vojteu.materials.Material;
-import pl.vojteu.Orderer;
+import pl.vojteu.utils.Orderer;
 
-public class MaterialOrder extends Order {
+public final class MaterialOrder extends Order {
     private Material material;
 
     public MaterialOrder(Long id, Orderer orderer, Long units, Material material) {

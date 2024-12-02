@@ -1,6 +1,6 @@
 package pl.vojteu.products;
 
-import pl.vojteu.Location;
+import pl.vojteu.utils.Location;
 import pl.vojteu.interfaces.Adjustable;
 import pl.vojteu.interfaces.Customizable;
 import pl.vojteu.interfaces.ProductManager;

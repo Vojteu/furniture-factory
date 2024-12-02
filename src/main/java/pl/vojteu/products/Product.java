@@ -1,18 +1,18 @@
 package pl.vojteu.products;
 
-import pl.vojteu.Location;
+import pl.vojteu.utils.Location;
 import pl.vojteu.materials.Material;
 
 public abstract class Product {
     private Long id;
     private String name;
     private Double price;
-    private Double manufacturingFactor;
     private Location location;
     private Double height;
     private Double width;
     private Material material;
     private String color;
+    private Double manufacturingFactor;
 
     protected abstract void description();
     protected abstract Double calculateManufacturingCost();

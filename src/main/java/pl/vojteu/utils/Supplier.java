@@ -1,16 +1,20 @@
-package pl.vojteu;
+package pl.vojteu.utils;
 
-public class Orderer {
+import pl.vojteu.materials.Material;
+
+public class Supplier {
     private Long id;
     private String name;
     private String surname;
     private Address address;
+    private Material material;
 
-    public Orderer(Long id, String name, String surname, Address address) {
+    public Supplier(Long id, String name, String surname, Address address, Material material) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.address = address;
+        this.material = material;
     }
 
     public Long getId() {
@@ -45,13 +49,22 @@ public class Orderer {
         this.address = address;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Orderer{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", surname='" + surname + '\'' +
-//                ", address=" + address +
-//                '}';
-//    }
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address=" + address +
+                ", material=" + material +
+                '}';
+    }
 }

@@ -1,4 +1,4 @@
-package pl.vojteu;
+package pl.vojteu.utils;
 
 import java.util.Arrays;
 

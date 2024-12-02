@@ -1,6 +1,6 @@
 package pl.vojteu.interfaces;
 
-import pl.vojteu.Location;
+import pl.vojteu.utils.Location;
 
 public interface Adjustable {
     void swing(Location location, double speed);

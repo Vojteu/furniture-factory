@@ -1,4 +1,4 @@
-package pl.vojteu;
+package pl.vojteu.utils;
 
 public class Employee {
     private Long id;
