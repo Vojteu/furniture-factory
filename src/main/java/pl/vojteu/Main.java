@@ -87,11 +87,15 @@ public class Main {
 
         materialsList.put(new Wood(1L,"Wood", new BigDecimal(1), "kg", "oak"), 100);
         materialsList.put(new Glue(2L,"Glue", new BigDecimal(1), "ml", "Wood glue"), 2000);
+//        materialsList.put(new Glue(3L,"Glue2", new BigDecimal(1), "ml", "Wood glue"), 2000);
+        Material newMaterial = new Glue(3L,"Glue2", new BigDecimal(1), "ml", "Wood glue");
+        Factory.getCurrentStock(materialsList);
+
+        factory.addMaterial(materialsList, newMaterial, 2000);
+
         Factory.getCurrentStock(materialsList);
 
         inventory.materials = materialsList;
         System.out.println(inventory.getMaterials());
-
-
     }
 }

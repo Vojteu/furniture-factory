@@ -1,5 +1,6 @@
 package pl.vojteu;
 
+import pl.vojteu.exceptions.MaterialAlreadyExistsException;
 import pl.vojteu.exceptions.MaterialNotAvailableException;
 import pl.vojteu.materials.Material;
 import pl.vojteu.utils.Inventory;
@@ -30,13 +31,21 @@ public class Factory {
         (materialInventory.getMaterials()).put(material, materialInventory.getMaterials().get(material) - quantity);
         System.out.println("Material '" + material + "' used: " + quantity + " units.");
     }
-//    public void updateMaterialQuantity(String material, int quantity, String operation){
-//        switch (operation) {
-//            case "+":
-//
-//        }
-//    }
 
+    public void addMaterial(Map<Material, Integer> materialsList, Material newMaterial, Integer quantity){
+        try {
+            boolean exists = materialsList.keySet().stream()
+                    .anyMatch(material -> material.getName().equals(newMaterial.getName()));
+            if (exists) {
+                throw new MaterialAlreadyExistsException("Material with name '" + newMaterial.getName() + "' already exists.");
+            }
+
+            materialsList.put(newMaterial, quantity);
+            System.out.println("Material added successfully: " + newMaterial.getName());
+        } catch (MaterialAlreadyExistsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 
     public static String readNoteFile(String path) throws IOException {
         FileReader fr = new FileReader(path);
@@ -49,6 +58,5 @@ public class Factory {
             br.close();
             fr.close();
         }
-
     }
 }
