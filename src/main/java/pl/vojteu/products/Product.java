@@ -4,6 +4,7 @@ import pl.vojteu.utils.Location;
 import pl.vojteu.materials.Material;
 
 public abstract class Product {
+
     private Long id;
     private String name;
     private Double price;
@@ -15,6 +16,7 @@ public abstract class Product {
     private Double manufacturingFactor;
 
     protected abstract void description();
+
     protected abstract Double calculateManufacturingCost();
 
     public Product(Long id, String name, Double price) {

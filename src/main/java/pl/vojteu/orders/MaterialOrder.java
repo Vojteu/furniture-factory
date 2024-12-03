@@ -5,6 +5,7 @@ import pl.vojteu.entity.Orderer;
 import pl.vojteu.materials.Material;
 
 public final class MaterialOrder extends Order {
+
     private Material material;
 
     public MaterialOrder(Long id, Orderer orderer, Long units, Material material) {

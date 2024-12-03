@@ -1,6 +1,7 @@
 package pl.vojteu.entity;
 
 public class Company {
+
     private Address address;
     private String aboutUs;
     private String ownerName;

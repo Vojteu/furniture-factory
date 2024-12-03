@@ -1,6 +1,7 @@
 package pl.vojteu.machines;
 
 public abstract class Machine {
+
     private Long id;
     private String name;
     private String status;

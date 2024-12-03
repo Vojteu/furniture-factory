@@ -7,14 +7,13 @@ import pl.vojteu.interfaces.ProductManager;
 
 import java.util.Objects;
 
-public class Chair extends Product implements Adjustable, Customizable, ProductManager
-{
+public class Chair extends Product implements Adjustable, Customizable, ProductManager {
 
     private String chairKind;
 
-    public Chair(Long id, String name, Double price, Double manufacturingFactor,  String chairKind) {
+    public Chair(Long id, String name, Double price, Double manufacturingFactor, String chairKind) {
         super(id, name, price, manufacturingFactor);
-        this.chairKind =  chairKind;
+        this.chairKind = chairKind;
     }
 
     public String getChairKind() {

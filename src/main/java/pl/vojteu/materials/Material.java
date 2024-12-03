@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 public abstract class Material {
+
     private Long id;
     private String name;
     private BigDecimal price;

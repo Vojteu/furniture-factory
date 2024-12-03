@@ -1,24 +1,26 @@
-package pl.vojteu.stock;
+package pl.vojteu.entity;
 
 import pl.vojteu.materials.Material;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Inventory {
+
     private Long id;
-    public static Map<Material, Integer> materials;
+    private List<Material> materials;
+    public static Map<String, Integer> materialsMap;
     private LocalDateTime lastUpdated;
-    private Material material;
 
     public Inventory() {
-        materials = new HashMap<>();
+        materialsMap = new HashMap<>();
     }
 
     public Inventory(Long id) {
         this.id = id;
-        materials = new HashMap<>();
+        materialsMap = new HashMap<>();
     }
 
     public Long getId() {
@@ -29,6 +31,22 @@ public class Inventory {
         this.id = id;
     }
 
+    public List<Material> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(List<Material> materials) {
+        this.materials = materials;
+    }
+
+    public static Map<String, Integer> getMaterialsMap() {
+        return materialsMap;
+    }
+
+    public static void setMaterialsMap(Map<String, Integer> materialsMap) {
+        Inventory.materialsMap = materialsMap;
+    }
+
     public LocalDateTime getLastUpdated() {
         return lastUpdated;
     }
@@ -37,14 +55,11 @@ public class Inventory {
         this.lastUpdated = lastUpdated;
     }
 
-    public static Map<Material, Integer> getMaterials() {
-        return materials;
-    }
-
     @Override
     public String toString() {
         return "Inventory{" +
                 "id=" + id +
+                ", materials=" + materials +
                 ", lastUpdated=" + lastUpdated +
                 '}';
     }

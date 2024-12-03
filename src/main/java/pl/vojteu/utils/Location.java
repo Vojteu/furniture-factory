@@ -1,6 +1,7 @@
 package pl.vojteu.utils;
 
 public class Location {
+
     int x;
     int y;
     int z;

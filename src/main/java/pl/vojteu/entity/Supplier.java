@@ -3,6 +3,7 @@ package pl.vojteu.entity;
 import pl.vojteu.materials.Material;
 
 public class Supplier {
+
     private Long id;
     private String name;
     private String surname;

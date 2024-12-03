@@ -1,6 +1,7 @@
 package pl.vojteu.products;
 
-public class Wardrobe extends Product{
+public class Wardrobe extends Product {
+
     private String wardrobeKind;
 
     public Wardrobe(Long id, String name, Double price, Double manufacturingFactor, String wardrobeKind) {

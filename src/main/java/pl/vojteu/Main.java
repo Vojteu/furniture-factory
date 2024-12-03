@@ -5,7 +5,6 @@ import pl.vojteu.customizations.Rectangle;
 import pl.vojteu.customizations.ShapeCustomization;
 import pl.vojteu.entity.*;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
-import pl.vojteu.exceptions.checked.ProductionCapacityExceededException;
 import pl.vojteu.interfaces.Shape;
 import pl.vojteu.materials.Glue;
 import pl.vojteu.materials.Material;
@@ -14,7 +13,7 @@ import pl.vojteu.orders.MaterialOrder;
 import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
-import pl.vojteu.stock.Inventory;
+import pl.vojteu.entity.Inventory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,19 +21,20 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException, MaterialNotAvailableException {
         Address companyAddress = new Address("Olkiewicza", "66", "Warsaw", "Masovian");
-        Company company = new Company(companyAddress,"about us", "Marcin", "Grot");
+        Company company = new Company(companyAddress, "about us", "Marcin", "Grot");
         List<Employee> employeeList = new ArrayList<>();
         System.out.println(company);
 
         Department department1 = new Department(1L, "IT department");
 
         Employee employee1 = new Employee(1L, "Adrian", "Wysocki",
-                new Address("Lubelska","11", "Wroclaw", "Dolnoslaskie"));
+                new Address("Lubelska", "11", "Wroclaw", "Dolnoslaskie"));
 
         Employee employee2 = new Employee(2L, "Karol", "Gad",
-                new Address("Wojcickiego","12", "Warszawa", "Mazowieckie"));
+                new Address("Wojcickiego", "12", "Warszawa", "Mazowieckie"));
 
         employeeList.add(employee1);
         employeeList.add(employee2);
@@ -49,10 +49,9 @@ public class Main {
         seatPreference.createSeat(circleSeat);
         seatPreference.createSeat(rectangleSeat);
 
-        try{
+        try {
             System.out.println(Factory.readNoteFile("src/main/resources/note.txt"));
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("File not found " + e.getMessage());
         }
 
@@ -73,10 +72,10 @@ public class Main {
         productionCost.put("wardrobe medium", 500);
         productionCost.put("wardrobe big", 1000);
 
-        materialsMap.put(new Wood(1L,"Wood", new BigDecimal(1), "kg", "oak"), 200);
-        materialsMap.put(new Glue(2L,"Glue", new BigDecimal(1), "ml", "Wood glue"), 2000);
+        materialsMap.put(new Wood(1L, "Wood", new BigDecimal(1), "kg", "oak"), 200);
+        materialsMap.put(new Glue(2L, "Glue", new BigDecimal(1), "ml", "Wood glue"), 2000);
 //        materialsMap.put(new Glue(3L,"Glue2", new BigDecimal(1), "ml", "Wood glue"), 2000);
-        Material newMaterial = new Glue(3L,"Glue", new BigDecimal(1), "ml", "Wood glue");
+        Material newMaterial = new Glue(3L, "Glue", new BigDecimal(1), "ml", "Wood glue");
         Factory.getCurrentStock(materialsMap);
 
         factory.addMaterial(materialsMap, newMaterial, 2000); // MaterialAlreadyExistsException

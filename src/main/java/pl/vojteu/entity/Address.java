@@ -1,6 +1,7 @@
 package pl.vojteu.entity;
 
 public final class Address {
+
     private String streetName;
     private String streetNumber;
     private String city;

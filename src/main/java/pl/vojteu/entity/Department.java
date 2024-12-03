@@ -3,6 +3,7 @@ package pl.vojteu.entity;
 import java.util.List;
 
 public class Department {
+
     private Long id;
     private String name;
     private List<Employee> employeeList;

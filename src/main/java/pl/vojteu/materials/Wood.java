@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Wood extends Material implements MaterialManager {
+
     String woodKind;
 
     public Wood(Long id, String name, BigDecimal price, String unit, String woodKind) {

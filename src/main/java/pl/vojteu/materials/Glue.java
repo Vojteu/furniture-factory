@@ -5,6 +5,7 @@ import pl.vojteu.interfaces.MaterialManager;
 import java.math.BigDecimal;
 
 public class Glue extends Material implements MaterialManager {
+
     String glueType;
 
     public Glue(Long id, String name, BigDecimal price, String unit, String glueType) {
