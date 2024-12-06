@@ -2,20 +2,21 @@ package pl.vojteu.entity;
 
 import pl.vojteu.materials.Material;
 
+import java.util.List;
+
 public class Supplier {
 
     private Long id;
     private String name;
     private String surname;
     private Address address;
-    private Material material;
+    private List<Material> materials;
 
-    public Supplier(Long id, String name, String surname, Address address, Material material) {
+    public Supplier(Long id, String name, String surname, List<Material> materials) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.address = address;
-        this.material = material;
+        this.materials = materials;
     }
 
     public Long getId() {
@@ -50,12 +51,12 @@ public class Supplier {
         this.address = address;
     }
 
-    public Material getMaterial() {
-        return material;
+    public List<Material> getMaterials() {
+        return materials;
     }
 
-    public void setMaterial(Material material) {
-        this.material = material;
+    public void setMaterials(List<Material> materials) {
+        this.materials = materials;
     }
 
     @Override
@@ -65,7 +66,7 @@ public class Supplier {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address=" + address +
-                ", material=" + material +
+                ", materials=" + materials +
                 '}';
     }
 }

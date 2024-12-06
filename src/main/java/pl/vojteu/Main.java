@@ -1,117 +1,105 @@
 package pl.vojteu;
 
-import pl.vojteu.customizations.Circle;
-import pl.vojteu.customizations.Rectangle;
-import pl.vojteu.customizations.ShapeCustomization;
 import pl.vojteu.entity.*;
-import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
-import pl.vojteu.interfaces.Shape;
+import pl.vojteu.machines.ChairMachine;
+import pl.vojteu.machines.Machine;
+import pl.vojteu.machines.WardrobeMachine;
 import pl.vojteu.materials.Glue;
 import pl.vojteu.materials.Material;
 import pl.vojteu.materials.Wood;
 import pl.vojteu.orders.MaterialOrder;
+import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
-import pl.vojteu.entity.Inventory;
+import pl.vojteu.products.Wardrobe;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, MaterialNotAvailableException {
-        Address companyAddress = new Address("Olkiewicza", "66", "Warsaw", "Masovian");
-        Company company = new Company(companyAddress, "about us", "Marcin", "Grot");
+    public static void main(String[] args) {
         List<Employee> employeeList = new ArrayList<>();
-        System.out.println(company);
+        List<Department> departmentList = new ArrayList<>();
+        List<Material> materialList = new ArrayList<>();
+        List<Machine> machineList = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
+        Map<String, Integer> materialsMap = new HashMap<>();
+        Map<String, Integer> materialRequieremtnsMap = new HashMap<>();
 
-        Department department1 = new Department(1L, "IT department");
+        Factory factory = new Factory("Furniture factory");
 
-        Employee employee1 = new Employee(1L, "Adrian", "Wysocki",
-                new Address("Lubelska", "11", "Wroclaw", "Dolnoslaskie"));
+        Company comp = new Company(new Address("Lubelska", "1", "Warszawa", "Masovian"),
+                "decription", "Wojciech", "Salata");
+        factory.setCompany(comp);
+        final Orderer companyOrderer = new Orderer(1L, "Furniture factory", "sp. z. o. o", comp.getAddress());
 
-        Employee employee2 = new Employee(2L, "Karol", "Gad",
-                new Address("Wojcickiego", "12", "Warszawa", "Mazowieckie"));
+        Employee employee1 = new Employee( "Wojciech", "Salata");
+        employee1.setAddress(new Address("Lubelska", "1", "Warszawa", "Masovian"));
+
+        Department department1 = new Department(1L, "IT");
 
         employeeList.add(employee1);
-        employeeList.add(employee2);
         department1.setEmployeeList(employeeList);
+        departmentList.add(department1);
 
-        System.out.println(department1);
+        factory.setEmployees(employeeList);
+        factory.setDepartments(departmentList);
 
-        Shape circleSeat = new Circle();
-        Shape rectangleSeat = new Rectangle();
+        Material material1 = new Glue(1L, "Glue", new BigDecimal(1), "L", "Wood glue");
+        Material material2 = new Wood(2L, "Wood", new BigDecimal(1), "kg", "oak");
 
-        ShapeCustomization seatPreference = new ShapeCustomization(circleSeat);
-        seatPreference.createSeat(circleSeat);
-        seatPreference.createSeat(rectangleSeat);
+        materialList.add(material1);
+        materialList.add(material2);
 
-        try {
-            System.out.println(Factory.readNoteFile("src/main/resources/note.txt"));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found " + e.getMessage());
-        }
+        factory.setMaterials(materialList);
 
-        Factory factory = new Factory();
-        Inventory inventory = new Inventory();
-        Map<Material, Integer> materialsMap = new HashMap<>();
-        Set<String> materialSet = new HashSet<>();
-        materialSet.add("Wood");
-        materialSet.add("Glue");
-        materialSet.add("Screw");
-        materialSet.add("Aluminium");
-        materialSet.add("Plastic");
-        materialSet.add("Steel");
+        materialsMap.put(material1.getName(), 100);
+        materialsMap.put(material2.getName(), 500);
+        factory.setLastUpdated(LocalDateTime.now());
 
-        Map<String, Integer> productionCost = new HashMap<>();
-        productionCost.put("swivel office chair", 170);
-        productionCost.put("wardrobe small", 250);
-        productionCost.put("wardrobe medium", 500);
-        productionCost.put("wardrobe big", 1000);
+        factory.setMaterialsMap(materialsMap);
 
-        materialsMap.put(new Wood(1L, "Wood", new BigDecimal(1), "kg", "oak"), 200);
-        materialsMap.put(new Glue(2L, "Glue", new BigDecimal(1), "ml", "Wood glue"), 2000);
-//        materialsMap.put(new Glue(3L,"Glue2", new BigDecimal(1), "ml", "Wood glue"), 2000);
-        Material newMaterial = new Glue(3L, "Glue", new BigDecimal(1), "ml", "Wood glue");
-        Factory.getCurrentStock(materialsMap);
+        Machine machine1 = new ChairMachine(1L, "machine1", "stopped");
+        Machine machine2 = new WardrobeMachine(2L, "machine2", "stopped");
 
-        factory.addMaterial(materialsMap, newMaterial, 2000); // MaterialAlreadyExistsException
+        machineList.add(machine1);
+        machineList.add(machine2);
 
-        Factory.getCurrentStock(materialsMap);
+        factory.setMachines(machineList);
 
-        inventory.materials = materialsMap;
-        System.out.println(inventory.getMaterials());
+        Factory.getCurrentStock(materialsMap, factory.getLastUpdated());
 
-        Order order1 = new MaterialOrder(1L, (new Orderer(1L, "Wojtek", "S",
-                new Address("Olkiewicza", "66", "Warsaw", "Masovian"))), 100L, newMaterial);
 
-        Product product1 = new Chair(1L, "swivel office chair", 50.0, 0.6, "swivel chair");
 
-//        try{
-//            if(productionCost.get(product1.getName()) < 170){
-//                throw new ProductionCapacityExceededException("Not enough resources");
-//            }
-//            productionCost.replace(product1.getName(),productionCost.get(product1.getName()));
-//            System.out.println("Production of " + product1.getName() + "is done");
-//        }
-//        catch(ProductionCapacityExceededException e){
-//            System.out.println("Error: " + e.getMessage());
-//        }
-//        finally{
-//            System.out.println("available resources: " + productionCost.get(product1.getName()));
-//        }
+        Product product1 = new Chair(1L,"swivel office chair",50.0, 0.5,"office chair");
+        Product product2 = new Wardrobe(2L,"wardrobe big",200.0, 0.5,"clothes wardrobe");
+        products.add(product1);
+        products.add(product2);
 
-        Order order2 = new RetailerOrder(1L, new Orderer(1L, "Wojtek", "S",
-                new Address("Olkiewicza", "66", "Warsaw", "Masovian")), 150L, product1);
+        System.out.println(products);
+
+        factory.whatProductIsThat(product1);
+
+        Orderer orderer1 = new Orderer(2L, "Konrad", "Kon", new Address("Zlota",
+                "1c", "Warszawa", "Masovian") );
+        Order retailerOrder = new RetailerOrder(1L, orderer1, 128L, product1);
+        factory.addDiscount();
+
+        System.out.println(orderer1);
+        System.out.println(retailerOrder);
+
+        Supplier supplier = new Supplier(1L, "Jan", "Jakis", materialList);
+
+        Order order1 = new MaterialOrder(1L, companyOrderer, "120 " + material1.getUnit(), material1);
+        Order order2 = new MaterialOrder(2L, companyOrderer, "1000 " + material2.getUnit(), material2);
 
         System.out.println(order1);
         System.out.println(order2);
-
-        factory.useMaterial(newMaterial, 2500, materialsMap); // MaterialNotAvailableException
-
-
     }
 }

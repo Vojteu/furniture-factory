@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class Glue extends Material implements MaterialManager {
 
-    String glueType;
+    private String glueType;
 
     public Glue(Long id, String name, BigDecimal price, String unit, String glueType) {
         super(id, name, price, unit);

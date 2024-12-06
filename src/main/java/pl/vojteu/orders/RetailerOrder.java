@@ -1,6 +1,5 @@
 package pl.vojteu.orders;
 
-import pl.vojteu.entity.Order;
 import pl.vojteu.entity.Orderer;
 import pl.vojteu.products.Product;
 

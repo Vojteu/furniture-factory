@@ -8,7 +8,7 @@ public class Department {
     private String name;
     private List<Employee> employeeList;
 
-    public Department(Long id, String name) {
+    public Department(Long id,String name) {
         this.id = id;
         this.name = name;
     }

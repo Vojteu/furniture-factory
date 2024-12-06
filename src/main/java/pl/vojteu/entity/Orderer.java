@@ -1,11 +1,16 @@
 package pl.vojteu.entity;
 
+import pl.vojteu.orders.Order;
+import java.util.List;
+
 public class Orderer {
 
     private Long id;
     private String name;
     private String surname;
     private Address address;
+    private List<Order> orders;
+
 
     public Orderer(Long id, String name, String surname, Address address) {
         this.id = id;
@@ -46,13 +51,22 @@ public class Orderer {
         this.address = address;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Orderer{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", surname='" + surname + '\'' +
-//                ", address=" + address +
-//                '}';
-//    }
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    @Override
+    public String toString() {
+        return "Orderer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address=" + address +
+                ", orders=" + orders +
+                '}';
+    }
 }

@@ -1,13 +1,10 @@
 package pl.vojteu.products;
 
-import pl.vojteu.utils.Location;
 import pl.vojteu.interfaces.Adjustable;
 import pl.vojteu.interfaces.Customizable;
-import pl.vojteu.interfaces.ProductManager;
-
 import java.util.Objects;
 
-public class Chair extends Product implements Adjustable, Customizable, ProductManager {
+public class Chair extends Product implements Adjustable, Customizable{
 
     private String chairKind;
 
@@ -35,14 +32,7 @@ public class Chair extends Product implements Adjustable, Customizable, ProductM
     }
 
     @Override
-    public String toString() {
-        return "Chair{" +
-                "chairKind='" + chairKind + '\'' +
-                '}';
-    }
-
-    @Override
-    public void swing(Location location, double speed) {
+    public void swing(double speed) {
 
     }
 
@@ -57,16 +47,6 @@ public class Chair extends Product implements Adjustable, Customizable, ProductM
     }
 
     @Override
-    public void addDiscount() {
-
-    }
-
-    @Override
-    public void whatProductIsThat(Product product) {
-        System.out.println(product.getName());
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -78,4 +58,5 @@ public class Chair extends Product implements Adjustable, Customizable, ProductM
     public int hashCode() {
         return Objects.hashCode(chairKind);
     }
+
 }

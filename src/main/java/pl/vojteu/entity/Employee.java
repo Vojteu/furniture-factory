@@ -7,11 +7,9 @@ public class Employee {
     private String surname;
     private Address address;
 
-    public Employee(Long id, String name, String surname, Address address) {
-        this.id = id;
+    public Employee(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.address = address;
     }
 
     public Long getId() {
@@ -48,7 +46,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employees{" +
+        return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

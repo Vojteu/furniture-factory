@@ -26,11 +26,4 @@ public class Wardrobe extends Product {
     protected Double calculateManufacturingCost() {
         return getPrice() * getManufacturingFactor();
     }
-
-    @Override
-    public String toString() {
-        return "Wardrobe{" +
-                "wardrobeKind='" + wardrobeKind + '\'' +
-                '}';
-    }
 }

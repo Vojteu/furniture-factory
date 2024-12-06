@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Wood extends Material implements MaterialManager {
 
-    String woodKind;
+    private String woodKind;
 
     public Wood(Long id, String name, BigDecimal price, String unit, String woodKind) {
         super(id, name, price, unit);

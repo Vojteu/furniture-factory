@@ -1,15 +1,16 @@
 package pl.vojteu.orders;
 
-import pl.vojteu.entity.Order;
 import pl.vojteu.entity.Orderer;
 import pl.vojteu.materials.Material;
 
 public final class MaterialOrder extends Order {
 
     private Material material;
+    private String quantity;
 
-    public MaterialOrder(Long id, Orderer orderer, Long units, Material material) {
-        super(id, orderer, units);
+    public MaterialOrder(Long id, Orderer orderer, String quantity, Material material) {
+        super(id, orderer);
+        this.quantity = quantity;
         this.material = material;
     }
 
@@ -21,10 +22,19 @@ public final class MaterialOrder extends Order {
         this.material = material;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "MaterialOrder{" +
                 "material=" + material +
-                '}';
+                ", quantity='" + quantity + '\'' +
+                "} " + super.toString();
     }
 }
