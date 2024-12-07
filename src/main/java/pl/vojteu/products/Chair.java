@@ -1,5 +1,8 @@
 package pl.vojteu.products;
 
+import pl.vojteu.components.Arm;
+import pl.vojteu.components.Back;
+import pl.vojteu.components.Seat;
 import pl.vojteu.interfaces.Adjustable;
 import pl.vojteu.interfaces.Customizable;
 import java.util.Objects;
@@ -7,10 +10,16 @@ import java.util.Objects;
 public class Chair extends Product implements Adjustable, Customizable{
 
     private String chairKind;
+    private Seat seat;
+    private Arm arm;
+    private Back back;
 
-    public Chair(Long id, String name, Double price, Double manufacturingFactor, String chairKind) {
+    public Chair(Long id, String name, Double price, Double manufacturingFactor, String chairKind, Seat seat, Arm arm, Back back) {
         super(id, name, price, manufacturingFactor);
         this.chairKind = chairKind;
+        this.seat = seat;
+        this.arm = arm;
+        this.back = back;
     }
 
     public String getChairKind() {
@@ -21,9 +30,36 @@ public class Chair extends Product implements Adjustable, Customizable{
         this.chairKind = chairKind;
     }
 
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public Arm getArm() {
+        return arm;
+    }
+
+    public void setArm(Arm arm) {
+        this.arm = arm;
+    }
+
+    public Back getBack() {
+        return back;
+    }
+
+    public void setBack(Back back) {
+        this.back = back;
+    }
+
     @Override
     protected void description() {
-        System.out.println("Chair description");
+        System.out.println("Chair description:");
+        if (seat != null) seat.description();
+        if (arm != null) arm.description();
+        if (back != null) back.description();
     }
 
     @Override
@@ -59,4 +95,13 @@ public class Chair extends Product implements Adjustable, Customizable{
         return Objects.hashCode(chairKind);
     }
 
+    @Override
+    public String toString() {
+        return  super.toString() +
+                ", chairKind='" + chairKind + '\'' +
+                ", seat=" + seat +
+                ", arm=" + arm +
+                ", back=" + back +
+                "} " ;
+    }
 }

@@ -8,4 +8,5 @@ public class Circle implements Shape {
     public void create() {
         System.out.println("Circle seat created");
     }
+
 }

@@ -93,7 +93,6 @@ public abstract class Product {
                 ", height=" + height +
                 ", width=" + width +
                 ", color='" + color + '\'' +
-                ", manufacturingFactor=" + manufacturingFactor +
-                '}';
+                ", manufacturingFactor=" + manufacturingFactor;
     }
 }
