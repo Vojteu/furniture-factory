@@ -7,8 +7,8 @@ public final class RetailerOrder extends Order {
 
     private Product product;
 
-    public RetailerOrder(Long id, Orderer orderer, Long units, Product product) {
-        super(id, orderer, units);
+    public RetailerOrder(Long id, Orderer orderer, Integer quantity, String unit, Product product) {
+        super(id, orderer, quantity, unit);
         this.product = product;
     }
 
@@ -24,6 +24,6 @@ public final class RetailerOrder extends Order {
     public String toString() {
         return "RetailerOrder{" +
                 "product=" + product +
-                '}';
+                '}' + " quantity: " + getQuantity() + getUnit();
     }
 }

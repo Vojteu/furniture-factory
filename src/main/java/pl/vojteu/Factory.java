@@ -190,8 +190,9 @@ public class Factory implements ProductManager {
     }
 
     @Override
-    public void addDiscount() { 
-        System.out.println("discount added");
+    public void addDiscount(Product product, Double discount) {
+        product.setPrice(product.getPrice()*discount);
+        System.out.println("discount: " + discount*100 + "%" + " has been added to: " + product.getName());
     }
 
     @Override

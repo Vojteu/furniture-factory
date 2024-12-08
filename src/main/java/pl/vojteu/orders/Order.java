@@ -11,12 +11,14 @@ public class Order {
     private Long id;
     private Orderer orderer;
     private List<Product> products;
-    private Long units;
+    private Integer quantity;
+    private String unit;
 
-    public Order(Long id, Orderer orderer, Long units) {
+    public Order(Long id, Orderer orderer, Integer quantity, String unit) {
         this.id = id;
         this.orderer = orderer;
-        this.units = units;
+        this.quantity = quantity;
+        this.unit = unit;
     }
     public Order(Long id, Orderer orderer) {
         this.id = id;
@@ -39,14 +41,6 @@ public class Order {
         this.orderer = orderer;
     }
 
-    public Long getUnits() {
-        return units;
-    }
-
-    public void setUnits(Long units) {
-        this.units = units;
-    }
-
     public List<Product> getProducts() {
         return products;
     }
@@ -55,13 +49,29 @@ public class Order {
         this.products = products;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", orderer=" + orderer +
-                ", products=" + products +
-                ", units=" + units +
-                '}';
+    public Integer getQuantity() {
+        return quantity;
     }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Order{" +
+//                "id=" + id +
+//                ", orderer=" + orderer +
+//                ", products=" + products +
+//                ", units=" + quantity +
+//                '}';
+//    }
 }

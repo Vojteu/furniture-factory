@@ -49,17 +49,17 @@ public class Main {
         factory.setCompany(comp);
         final Orderer companyOrderer = new Orderer(1L, "Furniture factory", "sp. z. o. o", comp.getAddress());
 
-//        Employee employee1 = new Employee( "Wojciech", "Salata");
-//        employee1.setAddress(new Address("Lubelska", "1", "Warszawa", "Masovian"));
-//
-//        Department department1 = new Department(1L, "IT");
-//
-//        employeeList.add(employee1);
-//        department1.setEmployeeList(employeeList);
-//        departmentList.add(department1);
-//
-//        factory.setEmployees(employeeList);
-//        factory.setDepartments(departmentList);
+        Employee employee1 = new Employee( "Wojciech", "Salata");
+        employee1.setAddress(new Address("Lubelska", "1", "Warszawa", "Masovian"));
+
+        Department department1 = new Department(1L, "IT");
+
+        employeeList.add(employee1);
+        department1.setEmployeeList(employeeList);
+        departmentList.add(department1);
+
+        factory.setEmployees(employeeList);
+        factory.setDepartments(departmentList);
 
         Material material1 = new Glue(1L, "Glue", new BigDecimal(1), "L", "Wood glue");
         Material material2 = new Wood(2L, "Wood", new BigDecimal(1), "kg", "oak");
@@ -83,7 +83,7 @@ public class Main {
 
         factory.setMachines(machineList);
 
-//        Factory.getCurrentStock(materialsMap, factory.getLastUpdated());
+        Factory.getCurrentStock(materialsMap, factory.getLastUpdated());
 
 
         Shape circleShape = new Circle();
@@ -120,30 +120,30 @@ public class Main {
 
         System.out.println("prodcut1: " + product1);
         System.out.println("prodcut2: " + product2);
-//        System.out.println();
-//
-//        products.add(product1);
-//        products.add(product2);
-//        System.out.println(products);
-//
-//        factory.whatProductIsThat(product1);
-//
-//        Orderer orderer1 = new Orderer(2L, "Konrad", "Kon", new Address("Zlota",
-//                "1c", "Warszawa", "Masovian") );
-//        Order retailerOrder = new RetailerOrder(1L, orderer1, 128L, product1);
-//        factory.addDiscount();
-//
-//        System.out.println(orderer1);
-//        System.out.println(retailerOrder);
-//
-//        Supplier supplier = new Supplier(1L, "Jan", "Jakis", materialList);
-//
-//        Order order1 = new MaterialOrder(1L, companyOrderer, "120 " + material1.getUnit(), material1);
-//        Order order2 = new MaterialOrder(2L, companyOrderer, "1000 " + material2.getUnit(), material2);
-//
-//        System.out.println(order1);
-//        System.out.println(order2);
+        System.out.println();
 
-        
+        products.add(product1);
+        products.add(product2);
+        System.out.println(products);
+
+        factory.whatProductIsThat(product1);
+
+        Orderer orderer1 = new Orderer(2L, "Konrad", "Kon", new Address("Zlota",
+                "1c", "Warszawa", "Masovian") );
+        Order retailerOrder = new RetailerOrder(1L, orderer1, 128, "units", product1);
+        factory.addDiscount(product1, 0.2);
+
+        System.out.println(orderer1);
+        System.out.println(retailerOrder);
+
+        Supplier supplier = new Supplier(1L, "Jan", "Jakis", materialList);
+
+
+
+        Order order1 = new MaterialOrder(1L, companyOrderer, 120, "L", material1);
+        Order order2 = new MaterialOrder(2L, companyOrderer, 1000, "kg", material2);
+
+        System.out.println(order1);
+        System.out.println(order2);
     }
 }

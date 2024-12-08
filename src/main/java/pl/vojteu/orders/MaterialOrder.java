@@ -1,16 +1,17 @@
 package pl.vojteu.orders;
 
 import pl.vojteu.entity.Orderer;
+import pl.vojteu.interfaces.MaterialManager;
 import pl.vojteu.materials.Material;
 
-public final class MaterialOrder extends Order {
+import java.math.BigDecimal;
+
+public final class MaterialOrder extends Order implements MaterialManager {
 
     private Material material;
-    private String quantity;
 
-    public MaterialOrder(Long id, Orderer orderer, String quantity, Material material) {
-        super(id, orderer);
-        this.quantity = quantity;
+    public MaterialOrder(Long id, Orderer orderer, Integer quantity, String unit, Material material) {
+        super(id, orderer, quantity,unit);
         this.material = material;
     }
 
@@ -22,19 +23,20 @@ public final class MaterialOrder extends Order {
         this.material = material;
     }
 
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
     @Override
     public String toString() {
         return "MaterialOrder{" +
                 "material=" + material +
-                ", quantity='" + quantity + '\'' +
-                "} " + super.toString();
+                "} " + "quantity: " + getQuantity() + getUnit();
+    }
+
+    @Override
+    public void adjustPrice(BigDecimal bigdecimal) {
+
+    }
+
+    @Override
+    public void whoIsSupplier(Material material) {
+        material.getMaterialSuppliers().get(material.getName());
     }
 }
