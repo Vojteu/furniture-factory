@@ -3,6 +3,7 @@ package pl.vojteu.components;
 import pl.vojteu.materials.Material;
 
 public class Back extends Component {
+
     private double height;
 
     public Back(Material material, double height) {

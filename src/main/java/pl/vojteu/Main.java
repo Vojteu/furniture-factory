@@ -20,16 +20,11 @@ import pl.vojteu.materials.Wood;
 import pl.vojteu.orders.MaterialOrder;
 import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
-import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
-import pl.vojteu.products.Wardrobe;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
@@ -41,6 +36,9 @@ public class Main {
         List<Product> products = new ArrayList<>();
         Map<String, Integer> materialsMap = new HashMap<>();
         Map<String, Integer> materialRequieremtnsMap = new HashMap<>();
+        Map<String, String> materialSuppliers = new HashMap<>();
+        Set<String> setOfSupplierMaterials = new HashSet<>();
+
 
         Factory factory = new Factory("Furniture factory");
 
@@ -116,6 +114,15 @@ public class Main {
                 .setDoors(doors)
                 .build();
 
+        Product product3 = new WardrobeBuilder()
+                .setId(3L)
+                .setName("wardrobe small")
+                .setPrice(50.0)
+                .setManufacturingFactor(0.5)
+                .setWardrobeKind("clothes wardrobe")
+                .setDoors(doors)
+                .build();
+
         System.out.println();
 
         System.out.println("prodcut1: " + product1);
@@ -130,20 +137,48 @@ public class Main {
 
         Orderer orderer1 = new Orderer(2L, "Konrad", "Kon", new Address("Zlota",
                 "1c", "Warszawa", "Masovian") );
-        Order retailerOrder = new RetailerOrder(1L, orderer1, 128, "units", product1);
-        factory.addDiscount(product1, 0.2);
+
+        Order retailerOrder1 = new RetailerOrder(1L, orderer1, 128, "units", product1);
+        Order retailerOrder2 = new RetailerOrder(1L, orderer1, 16, "units", product2);
+
+        System.out.println(products.get(0).getPrice());
+        System.out.println(products.get(1).getPrice());
 
         System.out.println(orderer1);
-        System.out.println(retailerOrder);
+        System.out.println(retailerOrder1);
+        System.out.println(retailerOrder2);
 
-        Supplier supplier = new Supplier(1L, "Jan", "Jakis", materialList);
+        Supplier supplier = new Supplier(1L, "Jan", "Jakis", material2);
+        materialSuppliers.put(supplier.getMaterial().getName(), supplier.getName() + " " + supplier.getSurname());
+        factory.setMaterialSuppliers(materialSuppliers);
 
-
+        System.out.println(factory.getMaterialSuppliers());
 
         Order order1 = new MaterialOrder(1L, companyOrderer, 120, "L", material1);
         Order order2 = new MaterialOrder(2L, companyOrderer, 1000, "kg", material2);
 
         System.out.println(order1);
         System.out.println(order2);
+
+        List<Order> retailerOrders = new ArrayList<>();
+        List<Order> materialOrders = new ArrayList<>();
+
+        retailerOrders.add(retailerOrder1);
+        retailerOrders.add(retailerOrder2);
+
+        double orderPrice = factory.countOrderCost(retailerOrders);
+        System.out.println(orderPrice);
+        if(orderPrice > factory.getDiscountBreakPoint()){
+           orderPrice = factory.addDiscountOrder(retailerOrders, 0.2);
+            System.out.println("Discount added. The price with discount is: " + orderPrice);
+        }
+        else{
+            System.out.println("discount not added.");
+        }
+
+        System.out.println(product3);
+        factory.addDiscount(product3, 0.3);
+
+        System.out.println(factory.whoIsSupplier(material2));
     }
 }

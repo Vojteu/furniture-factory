@@ -3,6 +3,7 @@ package pl.vojteu.components;
 import pl.vojteu.materials.Material;
 
 public abstract class Component {
+
     private Material material;
 
     public Component(Material material) {

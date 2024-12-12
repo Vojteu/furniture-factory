@@ -22,8 +22,8 @@ public class Glue extends Material implements MaterialManager {
     }
 
     @Override
-    public void whoIsSupplier(Material material) {
-
+    public String whoIsSupplier(Material material) {
+        return material.getMaterialSuppliers().get(material.getName());
     }
 
     @Override
@@ -31,9 +31,14 @@ public class Glue extends Material implements MaterialManager {
         System.out.println("Glue description");
     }
 
+//    @Override
+//    public void adjustPrice(BigDecimal exchangeRate) {
+//        setPrice((getPrice()).multiply(exchangeRate));
+//    }
+
     @Override
-    public void adjustPrice(BigDecimal exchangeRate) {
-        setPrice((getPrice()).multiply(exchangeRate));
+    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
+        return false;
     }
 
     @Override

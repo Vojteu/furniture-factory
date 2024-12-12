@@ -4,6 +4,7 @@ import pl.vojteu.interfaces.Shape;
 import pl.vojteu.materials.Material;
 
 public class Door extends Component{
+
     private Shape shape;
 
     public Door(Material material, Shape shape) {

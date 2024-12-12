@@ -31,12 +31,12 @@ public final class MaterialOrder extends Order implements MaterialManager {
     }
 
     @Override
-    public void adjustPrice(BigDecimal bigdecimal) {
-
+    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
+        return false;
     }
 
     @Override
-    public void whoIsSupplier(Material material) {
-        material.getMaterialSuppliers().get(material.getName());
+    public String whoIsSupplier(Material material) {
+        return material.getMaterialSuppliers().get(material.getName());
     }
 }

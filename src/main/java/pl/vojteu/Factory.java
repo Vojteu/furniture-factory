@@ -3,10 +3,13 @@ package pl.vojteu;
 import pl.vojteu.entity.*;
 import pl.vojteu.exceptions.checked.MaterialAlreadyExistsException;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
+import pl.vojteu.interfaces.MaterialManager;
+import pl.vojteu.interfaces.OrderManager;
 import pl.vojteu.interfaces.ProductManager;
 import pl.vojteu.machines.Machine;
 import pl.vojteu.materials.Material;
 import pl.vojteu.orders.Order;
+import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Product;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Factory implements ProductManager {
+public class Factory implements ProductManager, OrderManager, MaterialManager {
 
     private String name;
     private LocalDateTime lastUpdated;
@@ -31,6 +34,9 @@ public class Factory implements ProductManager {
     private List<Product> products;
     private List<Machine> machines;
     private Map<String, Integer> materialsMap;
+    private Map<String, String> materialSuppliers;
+
+    private final double discountBreakPoint = 2000.0;
 
     public Factory(String name) {
         this.name = name;
@@ -42,6 +48,7 @@ public class Factory implements ProductManager {
         this.products = new ArrayList<>();
         this.machines = new ArrayList<>();
         this.materialsMap = new HashMap<>();
+        this.materialSuppliers = new HashMap<>();
     }
 
     public String getName() {
@@ -132,11 +139,27 @@ public class Factory implements ProductManager {
         this.materialsMap = materialsMap;
     }
 
+    public double getDiscountBreakPoint() {
+        return discountBreakPoint;
+    }
+
+    public Map<String, String> getMaterialSuppliers() {
+        return materialSuppliers;
+    }
+
+    public void setMaterialSuppliers(Map<String, String> materialSuppliers) {
+        this.materialSuppliers = materialSuppliers;
+    }
+
     static {
         System.out.println("static block in Factory");
     }
 
-    public final static void getCurrentStock(Map<String, Integer> materialsMap, LocalDateTime whenUpdated) {
+    public static void showMaterialSuppliers(){
+
+    }
+
+    public static void getCurrentStock(Map<String, Integer> materialsMap, LocalDateTime whenUpdated) {
         if (materialsMap == null || materialsMap.isEmpty()) {
             System.out.println("The materials map is empty or null.");
             return;
@@ -191,12 +214,39 @@ public class Factory implements ProductManager {
 
     @Override
     public void addDiscount(Product product, Double discount) {
-        product.setPrice(product.getPrice()*discount);
+        product.setPrice(product .getPrice() - product.getPrice()*discount);
         System.out.println("discount: " + discount*100 + "%" + " has been added to: " + product.getName());
     }
 
     @Override
     public void whatProductIsThat(Product product) {
         System.out.println(product.getName());
+    }
+
+    @Override
+    public Double addDiscountOrder(List<Order> orders, double discount) {
+        return countOrderCost(orders) - countOrderCost(orders) * discount;
+    }
+
+    @Override
+    public Double countOrderCost(List<Order> orders) {
+        double sum = 0.0;
+        for(Order order : orders) {
+            if(order.getClass() == RetailerOrder.class) {
+                RetailerOrder retailerOrder = (RetailerOrder) order;
+                sum += retailerOrder.getQuantity() * retailerOrder.getProduct().getPrice();
+            }
+        }
+        return sum;
+    }
+
+    @Override
+    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
+        return false;
+    }
+
+    @Override
+    public String whoIsSupplier(Material material) {
+       return getMaterialSuppliers().get(material.getName());
     }
 }

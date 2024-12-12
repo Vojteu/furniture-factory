@@ -1,16 +1,11 @@
 package pl.vojteu.orders;
 
-
 import pl.vojteu.entity.Orderer;
-import pl.vojteu.products.Product;
-
-import java.util.List;
 
 public class Order {
 
     private Long id;
     private Orderer orderer;
-    private List<Product> products;
     private Integer quantity;
     private String unit;
 
@@ -41,14 +36,6 @@ public class Order {
         this.orderer = orderer;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
     public Integer getQuantity() {
         return quantity;
     }
@@ -64,14 +51,4 @@ public class Order {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Order{" +
-//                "id=" + id +
-//                ", orderer=" + orderer +
-//                ", products=" + products +
-//                ", units=" + quantity +
-//                '}';
-//    }
 }

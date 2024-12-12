@@ -27,14 +27,19 @@ public class Wood extends Material implements MaterialManager {
         System.out.println("Wood description");
     }
 
+//    @Override
+//    public void adjustPrice(BigDecimal exchangeRate) {
+//        setPrice((getPrice()).multiply(exchangeRate));
+//    }
+
     @Override
-    public void adjustPrice(BigDecimal exchangeRate) {
-        setPrice((getPrice()).multiply(exchangeRate));
+    public String whoIsSupplier(Material material) {
+        return material.getMaterialSuppliers().get(material.getName());
     }
 
     @Override
-    public void whoIsSupplier(Material material) {
-
+    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
+        return false;
     }
 
     @Override

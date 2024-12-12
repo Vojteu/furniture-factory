@@ -3,6 +3,7 @@ package pl.vojteu.components;
 import pl.vojteu.materials.Material;
 
 public class Arm extends Component {
+
     private boolean adjustable;
 
     public Arm(Material material, boolean adjustable) {

@@ -4,6 +4,7 @@ import pl.vojteu.interfaces.Shape;
 import pl.vojteu.materials.Material;
 
 public class Seat extends Component {
+
     private Shape shape;
 
     public Seat(Material material, Shape shape) {
