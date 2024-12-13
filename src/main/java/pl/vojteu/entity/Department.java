@@ -6,7 +6,7 @@ public class Department {
 
     private Long id;
     private String name;
-    private List<Employee> employeeList;
+    private List<Employee> employees;
 
     public Department(Long id,String name) {
         this.id = id;
@@ -30,11 +30,11 @@ public class Department {
     }
 
     public List<Employee> getEmployeeList() {
-        return employeeList;
+        return employees;
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void setEmployeeList(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Department {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", employeeList=" + employeeList +
+                ", employeeList=" + employees +
                 '}';
     }
 }

@@ -29,7 +29,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<Employee> employeeList = new ArrayList<>();
+        List<Employee> employess = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
         List<Material> materialList = new ArrayList<>();
         List<Machine> machineList = new ArrayList<>();
@@ -52,11 +52,11 @@ public class Main {
 
         Department department1 = new Department(1L, "IT");
 
-        employeeList.add(employee1);
-        department1.setEmployeeList(employeeList);
+        employess.add(employee1);
+        department1.setEmployeeList(employess);
         departmentList.add(department1);
 
-        factory.setEmployees(employeeList);
+        factory.setEmployees(employess);
         factory.setDepartments(departmentList);
 
         Material material1 = new Glue(1L, "Glue", new BigDecimal(1), "L", "Wood glue");
