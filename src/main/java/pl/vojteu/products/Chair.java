@@ -3,16 +3,15 @@ package pl.vojteu.products;
 import pl.vojteu.components.Arm;
 import pl.vojteu.components.Back;
 import pl.vojteu.components.Seat;
-import pl.vojteu.interfaces.Adjustable;
-import pl.vojteu.interfaces.Customizable;
 import java.util.Objects;
 
-public class Chair extends Product implements Adjustable, Customizable{
+public class Chair extends Product{
 
     private String chairKind;
     private Seat seat;
     private Arm arm;
     private Back back;
+    private boolean massageMode;
 
     public Chair(Long id, String name, Double price, Double manufacturingFactor, String chairKind, Seat seat, Arm arm, Back back) {
         super(id, name, price, manufacturingFactor);
@@ -54,6 +53,14 @@ public class Chair extends Product implements Adjustable, Customizable{
         this.back = back;
     }
 
+    public boolean isMassageMode() {
+        return massageMode;
+    }
+
+    public void setMassageMode(boolean massageMode) {
+        this.massageMode = massageMode;
+    }
+
     @Override
     protected void description() {
         System.out.println("Chair description:");
@@ -65,21 +72,6 @@ public class Chair extends Product implements Adjustable, Customizable{
     @Override
     protected Double calculateManufacturingCost() {
         return getPrice() * getManufacturingFactor();
-    }
-
-    @Override
-    public void swing(double speed) {
-
-    }
-
-    @Override
-    public void setDimensions(int width, int height) {
-
-    }
-
-    @Override
-    public void massage(int mode) {
-
     }
 
     @Override

@@ -1,11 +1,9 @@
 package pl.vojteu.materials;
 
-import pl.vojteu.interfaces.MaterialManager;
-
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Wood extends Material implements MaterialManager {
+public class Wood extends Material {
 
     private String woodKind;
 
@@ -23,23 +21,8 @@ public class Wood extends Material implements MaterialManager {
     }
 
     @Override
-    protected void description() {
-        System.out.println("Wood description");
-    }
-
-//    @Override
-//    public void adjustPrice(BigDecimal exchangeRate) {
-//        setPrice((getPrice()).multiply(exchangeRate));
-//    }
-
-    @Override
-    public String whoIsSupplier(Material material) {
-        return material.getMaterialSuppliers().get(material.getName());
-    }
-
-    @Override
-    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
-        return false;
+    public void description() {
+        System.out.println("This class is named: " + getName() + " and the type is: " + getWoodKind());
     }
 
     @Override

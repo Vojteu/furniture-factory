@@ -1,12 +1,9 @@
 package pl.vojteu.orders;
 
 import pl.vojteu.entity.Orderer;
-import pl.vojteu.interfaces.MaterialManager;
 import pl.vojteu.materials.Material;
 
-import java.math.BigDecimal;
-
-public final class MaterialOrder extends Order implements MaterialManager {
+public final class MaterialOrder extends Order {
 
     private Material material;
 
@@ -28,15 +25,5 @@ public final class MaterialOrder extends Order implements MaterialManager {
         return "MaterialOrder{" +
                 "material=" + material +
                 "} " + "quantity: " + getQuantity() + getUnit();
-    }
-
-    @Override
-    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
-        return false;
-    }
-
-    @Override
-    public String whoIsSupplier(Material material) {
-        return material.getMaterialSuppliers().get(material.getName());
     }
 }

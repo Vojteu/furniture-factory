@@ -3,13 +3,12 @@ package pl.vojteu;
 import pl.vojteu.entity.*;
 import pl.vojteu.exceptions.checked.MaterialAlreadyExistsException;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
-import pl.vojteu.interfaces.MaterialManager;
-import pl.vojteu.interfaces.OrderManager;
-import pl.vojteu.interfaces.ProductManager;
+import pl.vojteu.interfaces.*;
 import pl.vojteu.machines.Machine;
 import pl.vojteu.materials.Material;
 import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
+import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -21,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Factory implements ProductManager, OrderManager, MaterialManager {
+public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
 
     private String name;
     private LocalDateTime lastUpdated;
@@ -33,7 +32,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager {
     private List<Material> materials;
     private List<Product> products;
     private List<Machine> machines;
-    private Map<String, Integer> materialsMap;
+    private Map<String, Double> materialsMap;
     private Map<String, String> materialSuppliers;
 
     private final double discountBreakPoint = 2000.0;
@@ -131,11 +130,11 @@ public class Factory implements ProductManager, OrderManager, MaterialManager {
         this.company = company;
     }
 
-    public Map<String, Integer> getMaterialsMap() {
+    public Map<String, Double> getMaterialsMap() {
         return materialsMap;
     }
 
-    public void setMaterialsMap(Map<String, Integer> materialsMap) {
+    public void setMaterialsMap(Map<String, Double> materialsMap) {
         this.materialsMap = materialsMap;
     }
 
@@ -159,14 +158,14 @@ public class Factory implements ProductManager, OrderManager, MaterialManager {
 
     }
 
-    public static void getCurrentStock(Map<String, Integer> materialsMap, LocalDateTime whenUpdated) {
+    public static void getCurrentStock(Map<String, Double> materialsMap, LocalDateTime whenUpdated) {
         if (materialsMap == null || materialsMap.isEmpty()) {
             System.out.println("The materials map is empty or null.");
             return;
         }
 
         System.out.println("The current stock of materials is:");
-        for (Map.Entry<String, Integer> entry : materialsMap.entrySet()) {
+        for (Map.Entry<String, Double> entry : materialsMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         System.out.println("Updated at: " + whenUpdated);
@@ -241,12 +240,60 @@ public class Factory implements ProductManager, OrderManager, MaterialManager {
     }
 
     @Override
-    public boolean isMaterialAvailable(Material material, int requiredQuantity) {
-        return false;
+    public boolean isMaterialAvailable(Material material, double requiredQuantity) {
+        if(getMaterialsMap().get(material.getName()) >= requiredQuantity)
+            return true;
+        else
+            return false;
     }
 
     @Override
     public String whoIsSupplier(Material material) {
        return getMaterialSuppliers().get(material.getName());
+    }
+
+    @Override
+    public boolean massageMode(boolean mode, Product product) {
+        if(product instanceof Chair) {
+            Chair chair = (Chair) product;
+            if (!mode) {
+                chair.setMassageMode(false);
+                System.out.println("Massage mode not activated.");
+                return false;
+            } else {
+                chair.setMassageMode(true);
+                System.out.println("Massage mode activated.");
+                return true;
+            }
+        }
+        else{
+            System.out.println("it is not a Chair.");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean heatedSeat(boolean mode, Product product) {
+        if(product instanceof Chair) {
+            Chair chair = (Chair) product;
+            if (!mode) {
+                chair.setMassageMode(false);
+                System.out.println("Heated seats not activated.");
+                return false;
+            } else {
+                chair.setMassageMode(true);
+                System.out.println("Heated seats activated.");
+                return true;
+            }
+        }
+        else{
+            System.out.println("it is not a Chair.");
+            return false;
+        }
+    }
+
+    @Override
+    public void setColor(String color, Product product) {
+        product.setColor(color);
     }
 }

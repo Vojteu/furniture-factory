@@ -14,7 +14,7 @@ public abstract class Material {
     private Map<String, String> materialSuppliers;
     private LocalDateTime createdAt;
 
-    protected abstract void description();
+    public abstract void description();
 
     public Material(Long id, String name, BigDecimal price, String unit) {
         this.id = id;

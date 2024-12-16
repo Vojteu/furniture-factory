@@ -34,7 +34,7 @@ public class Main {
         List<Material> materialList = new ArrayList<>();
         List<Machine> machineList = new ArrayList<>();
         List<Product> products = new ArrayList<>();
-        Map<String, Integer> materialsMap = new HashMap<>();
+        Map<String, Double> materialsMap = new HashMap<>();
         Map<String, Integer> materialRequieremtnsMap = new HashMap<>();
         Map<String, String> materialSuppliers = new HashMap<>();
         Set<String> setOfSupplierMaterials = new HashSet<>();
@@ -67,8 +67,8 @@ public class Main {
 
         factory.setMaterials(materialList);
 
-        materialsMap.put(material1.getName(), 100);
-        materialsMap.put(material2.getName(), 500);
+        materialsMap.put(material1.getName(), 100.0);
+        materialsMap.put(material2.getName(), 500.0);
         factory.setLastUpdated(LocalDateTime.now());
 
         factory.setMaterialsMap(materialsMap);
@@ -180,5 +180,12 @@ public class Main {
         factory.addDiscount(product3, 0.3);
 
         System.out.println(factory.whoIsSupplier(material2));
+
+        System.out.println(factory.isMaterialAvailable(material2, 200.0));
+
+        material1.description();
+
+        factory.massageMode(true,product1);
+        factory.heatedSeat(true,product1);
     }
 }

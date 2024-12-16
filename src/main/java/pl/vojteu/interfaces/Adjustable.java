@@ -1,7 +1,8 @@
 package pl.vojteu.interfaces;
 
-public interface Adjustable {
-    void swing(double speed);
+import pl.vojteu.products.Product;
 
-    void massage(int mode); // slow,medium,fast
+public interface Adjustable {
+    boolean heatedSeat(boolean mode, Product product);
+    boolean massageMode(boolean mode, Product product);
 }

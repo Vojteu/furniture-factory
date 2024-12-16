@@ -1,7 +1,7 @@
 package pl.vojteu.interfaces;
 
-public interface Customizable {
-    void setColor(String color);
+import pl.vojteu.products.Product;
 
-    void setDimensions(int width, int height);
+public interface Customizable {
+    void setColor(String color, Product product);
 }

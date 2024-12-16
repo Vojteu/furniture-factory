@@ -1,8 +1,6 @@
 package pl.vojteu.machines;
 
-import pl.vojteu.interfaces.Movable;
-
-public class ChairMachine extends Machine implements Movable {
+public class ChairMachine extends Machine {
 
     private static final Integer workStation = 1;
 
