@@ -1,13 +1,14 @@
 package pl.vojteu.orders;
 
 import pl.vojteu.entity.Orderer;
+import pl.vojteu.exceptions.unchecked.InvalidQuantityException;
 import pl.vojteu.products.Product;
 
 public final class RetailerOrder extends Order {
 
     private Product product;
 
-    public RetailerOrder(Long id, Orderer orderer, Integer quantity, String unit, Product product) {
+    public RetailerOrder(Long id, Orderer orderer, Integer quantity, String unit, Product product) throws InvalidQuantityException {
         super(id, orderer, quantity, unit);
         this.product = product;
     }

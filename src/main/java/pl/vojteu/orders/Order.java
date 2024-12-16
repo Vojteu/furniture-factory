@@ -1,6 +1,7 @@
 package pl.vojteu.orders;
 
 import pl.vojteu.entity.Orderer;
+import pl.vojteu.exceptions.unchecked.InvalidQuantityException;
 
 public class Order {
 
@@ -9,7 +10,7 @@ public class Order {
     private Integer quantity;
     private String unit;
 
-    public Order(Long id, Orderer orderer, Integer quantity, String unit) {
+    public Order(Long id, Orderer orderer, Integer quantity, String unit) throws InvalidQuantityException {
         this.id = id;
         this.orderer = orderer;
         this.quantity = quantity;

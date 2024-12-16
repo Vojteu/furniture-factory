@@ -10,6 +10,10 @@ import pl.vojteu.customizations.Circle;
 import pl.vojteu.customizations.Rectangle;
 import pl.vojteu.customizations.ShapeCustomization;
 import pl.vojteu.entity.*;
+import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
+import pl.vojteu.exceptions.checked.ProductNotFoundException;
+import pl.vojteu.exceptions.checked.ProductionCapacityExceededException;
+import pl.vojteu.exceptions.unchecked.InvalidQuantityException;
 import pl.vojteu.interfaces.Shape;
 import pl.vojteu.machines.ChairMachine;
 import pl.vojteu.machines.Machine;
@@ -29,13 +33,13 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<Employee> employess = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
         List<Material> materialList = new ArrayList<>();
         List<Machine> machineList = new ArrayList<>();
         List<Product> products = new ArrayList<>();
         Map<String, Double> materialsMap = new HashMap<>();
-        Map<String, Integer> materialRequieremtnsMap = new HashMap<>();
+        Map<String, Integer> materialRequiermentsMap = new HashMap<>();
         Map<String, String> materialSuppliers = new HashMap<>();
         Set<String> setOfSupplierMaterials = new HashSet<>();
 
@@ -43,20 +47,20 @@ public class Main {
         Factory factory = new Factory("Furniture factory");
 
         Company comp = new Company(new Address("Lubelska", "1", "Warszawa", "Masovian"),
-                "decription", "Wojciech", "Salata");
+                "decription", "Wojciech", "S");
         factory.setCompany(comp);
         final Orderer companyOrderer = new Orderer(1L, "Furniture factory", "sp. z. o. o", comp.getAddress());
 
-        Employee employee1 = new Employee( "Wojciech", "Salata");
+        Employee employee1 = new Employee( "Wojciech", "S");
         employee1.setAddress(new Address("Lubelska", "1", "Warszawa", "Masovian"));
 
         Department department1 = new Department(1L, "IT");
 
-        employess.add(employee1);
-        department1.setEmployeeList(employess);
+        employees.add(employee1);
+        department1.setEmployeeList(employees);
         departmentList.add(department1);
 
-        factory.setEmployees(employess);
+        factory.setEmployees(employees);
         factory.setDepartments(departmentList);
 
         Material material1 = new Glue(1L, "Glue", new BigDecimal(1), "L", "Wood glue");
@@ -138,15 +142,15 @@ public class Main {
         Orderer orderer1 = new Orderer(2L, "Konrad", "Kon", new Address("Zlota",
                 "1c", "Warszawa", "Masovian") );
 
-        Order retailerOrder1 = new RetailerOrder(1L, orderer1, 128, "units", product1);
-        Order retailerOrder2 = new RetailerOrder(1L, orderer1, 16, "units", product2);
-
-        System.out.println(products.get(0).getPrice());
-        System.out.println(products.get(1).getPrice());
+        try{
+            factory.getProductPrice(0, products);
+            factory.getProductPrice(1, products);
+        }
+        catch(ProductNotFoundException e){
+            e.printStackTrace();
+        }
 
         System.out.println(orderer1);
-        System.out.println(retailerOrder1);
-        System.out.println(retailerOrder2);
 
         Supplier supplier = new Supplier(1L, "Jan", "Jakis", material2);
         materialSuppliers.put(supplier.getMaterial().getName(), supplier.getName() + " " + supplier.getSurname());
@@ -163,8 +167,20 @@ public class Main {
         List<Order> retailerOrders = new ArrayList<>();
         List<Order> materialOrders = new ArrayList<>();
 
-        retailerOrders.add(retailerOrder1);
-        retailerOrders.add(retailerOrder2);
+        try{
+            Order retailerOrder1 = new RetailerOrder(1L, orderer1, -1, "units", product1);
+            Order retailerOrder2 = new RetailerOrder(2L, orderer1, 16, "units", product2);
+            if (retailerOrder1.getQuantity() < 0 || retailerOrder2.getQuantity() < 0) {
+                throw new InvalidQuantityException("Quantity cannot be negative.");
+            }
+            System.out.println(retailerOrder1);
+            System.out.println(retailerOrder2);
+            retailerOrders.add(retailerOrder1);
+            retailerOrders.add(retailerOrder2);
+        }
+        catch(InvalidQuantityException e){
+            e.printStackTrace();
+        }
 
         double orderPrice = factory.countOrderCost(retailerOrders);
         System.out.println(orderPrice);
@@ -187,5 +203,27 @@ public class Main {
 
         factory.massageMode(true,product1);
         factory.heatedSeat(true,product1);
+
+        factory.setColor("Black", product1);
+
+        try {
+            factory.useMaterial(material1.getName(), 150.0, materialsMap);
+        }
+        catch(MaterialNotAvailableException e){
+            e.printStackTrace();
+        }
+
+        System.out.println(materialsMap);
+        try{
+            factory.addMaterial(materialsMap, material1.getName(), 25000.0 );
+        }
+        catch(ProductionCapacityExceededException ex){
+            ex.printStackTrace();
+        }
+        catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
+        System.out.println(materialsMap);
     }
 }

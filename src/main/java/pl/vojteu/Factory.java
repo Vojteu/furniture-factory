@@ -3,6 +3,8 @@ package pl.vojteu;
 import pl.vojteu.entity.*;
 import pl.vojteu.exceptions.checked.MaterialAlreadyExistsException;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
+import pl.vojteu.exceptions.checked.ProductNotFoundException;
+import pl.vojteu.exceptions.checked.ProductionCapacityExceededException;
 import pl.vojteu.interfaces.*;
 import pl.vojteu.machines.Machine;
 import pl.vojteu.materials.Material;
@@ -154,10 +156,6 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         System.out.println("static block in Factory");
     }
 
-    public static void showMaterialSuppliers(){
-
-    }
-
     public static void getCurrentStock(Map<String, Double> materialsMap, LocalDateTime whenUpdated) {
         if (materialsMap == null || materialsMap.isEmpty()) {
             System.out.println("The materials map is empty or null.");
@@ -171,7 +169,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         System.out.println("Updated at: " + whenUpdated);
     }
 
-    public void useMaterial(Material material, int quantity, Map<Material, Integer> materialInventory)
+    public void useMaterial(String material, Double quantity, Map<String, Double> materialInventory)
             throws MaterialNotAvailableException {
         if (!materialInventory.containsKey(material) || materialInventory.get(material) < quantity) {
             throw new MaterialNotAvailableException("Material '" + material + "' is not available or insufficient.");
@@ -180,20 +178,12 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         System.out.println("Material '" + material + "' used: " + quantity + " units.");
     }
 
-    public void addMaterial(Map<Material, Integer> materialsList, Material newMaterial, Integer quantity) {
-        try {
-            boolean exists = materialsList.keySet().stream()
-                    .anyMatch(material -> material.getName().equals(newMaterial.getName()));
-            if (exists) {
-                throw new MaterialAlreadyExistsException("Material with name '" + newMaterial.getName()
-                        + "' already exists.");
-            }
-
-            materialsList.put(newMaterial, quantity);
-            System.out.println("Material added successfully: " + newMaterial.getName());
-        } catch (MaterialAlreadyExistsException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    public void addMaterial(Map<String, Double> materialsMap, String newMaterial, Double quantity)
+            throws ProductionCapacityExceededException {
+            Double newQuantity = materialsMap.get(newMaterial) + quantity;
+            if(newQuantity > 25000.0)
+                throw new ProductionCapacityExceededException("Production capacity exceeded.");
+            materialsMap.put(newMaterial, newQuantity);
     }
 
     public static String readNoteFile(String path) throws IOException, FileNotFoundException {
@@ -295,5 +285,9 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     @Override
     public void setColor(String color, Product product) {
         product.setColor(color);
+    }
+
+    public Double getProductPrice(int id, List<Product> products) throws ProductNotFoundException {
+        return products.get(id).getPrice();
     }
 }
