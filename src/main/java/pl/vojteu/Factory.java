@@ -299,4 +299,15 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
                 .map(Machine::getStatus)
                 .orElseThrow(() -> new MachineNotFoundException("Machine with name " + name + " not found"));
     }
+
+    public void readFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("there is an error: " + e.getMessage());
+        }
+    }
 }

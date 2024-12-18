@@ -27,13 +27,14 @@ import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Product;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<Employee> employees = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
         List<Material> materialList = new ArrayList<>();
@@ -235,6 +236,8 @@ public class Main {
         catch(MachineNotFoundException e){
             e.printStackTrace();
         }
+
+        factory.readFile("src/main/resources/note.txt");
 
     }
 }
