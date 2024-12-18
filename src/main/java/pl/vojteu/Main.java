@@ -41,7 +41,6 @@ public class Main {
         List<Machine> machineList = new ArrayList<>();
         List<Product> products = new ArrayList<>();
         Map<String, Double> materialsMap = new HashMap<>();
-        Map<String, Integer> materialRequiermentsMap = new HashMap<>();
         Map<String, String> materialSuppliers = new HashMap<>();
         Set<String> setOfSupplierMaterials = new HashSet<>();
 
@@ -157,6 +156,7 @@ public class Main {
         Supplier supplier = new Supplier(1L, "Jan", "Jakis", material2);
         materialSuppliers.put(supplier.getMaterial().getName(), supplier.getName() + " " + supplier.getSurname());
         factory.setMaterialSuppliers(materialSuppliers);
+        setOfSupplierMaterials.add(supplier.getName() + " " + supplier.getSurname());
 
         System.out.println(factory.getMaterialSuppliers());
 
@@ -239,5 +239,16 @@ public class Main {
 
         factory.readFile("src/main/resources/note.txt");
 
+        for(Product product : products){
+            System.out.println(product);
+        }
+
+        for (Map.Entry<String, Double> entry : materialsMap.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+
+        for(String string : setOfSupplierMaterials){
+            System.out.println(string);
+        }
     }
 }
