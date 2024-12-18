@@ -1,7 +1,7 @@
 package pl.vojteu;
 
 import pl.vojteu.entity.*;
-import pl.vojteu.exceptions.checked.MaterialAlreadyExistsException;
+import pl.vojteu.exceptions.checked.MachineNotFoundException;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
 import pl.vojteu.exceptions.checked.ProductNotFoundException;
 import pl.vojteu.exceptions.checked.ProductionCapacityExceededException;
@@ -17,10 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
 
@@ -287,7 +284,19 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         product.setColor(color);
     }
 
-    public Double getProductPrice(int id, List<Product> products) throws ProductNotFoundException {
-        return products.get(id).getPrice();
+    public double getProductPrice(String name, List<Product> products) throws ProductNotFoundException {
+        return products.stream()
+                .filter(product -> product.getName().equals(name))
+                .findFirst()
+                .map(Product::getPrice)
+                .orElseThrow(() -> new ProductNotFoundException("Product with name " + name + " not found"));
+    }
+
+    public String getMachineStatus(String name) throws MachineNotFoundException {
+        return machines.stream()
+                .filter(machine -> machine.getName().equals(name))
+                .findFirst()
+                .map(Machine::getStatus)
+                .orElseThrow(() -> new MachineNotFoundException("Machine with name " + name + " not found"));
     }
 }

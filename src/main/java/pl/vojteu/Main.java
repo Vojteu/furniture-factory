@@ -10,6 +10,7 @@ import pl.vojteu.customizations.Circle;
 import pl.vojteu.customizations.Rectangle;
 import pl.vojteu.customizations.ShapeCustomization;
 import pl.vojteu.entity.*;
+import pl.vojteu.exceptions.checked.MachineNotFoundException;
 import pl.vojteu.exceptions.checked.MaterialNotAvailableException;
 import pl.vojteu.exceptions.checked.ProductNotFoundException;
 import pl.vojteu.exceptions.checked.ProductionCapacityExceededException;
@@ -143,8 +144,8 @@ public class Main {
                 "1c", "Warszawa", "Masovian") );
 
         try{
-            factory.getProductPrice(0, products);
-            factory.getProductPrice(1, products);
+//            factory.getProductPrice("Wood", products);
+            factory.getProductPrice("swivel office chair", products);
         }
         catch(ProductNotFoundException e){
             e.printStackTrace();
@@ -225,6 +226,15 @@ public class Main {
         }
 
         System.out.println(materialsMap);
+
+
+        try{
+            System.out.println(factory.getMachineStatus("machine"));
+//            System.out.println(factory.getMachineStatus("machine1"));
+        }
+        catch(MachineNotFoundException e){
+            e.printStackTrace();
+        }
 
     }
 }
