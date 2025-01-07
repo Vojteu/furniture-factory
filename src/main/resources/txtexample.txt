@@ -1,0 +1,19 @@
+Imagine you're at a dinner party, but you can't smell the food cooking or hear the dinner bell. Sounds like a dream, right? What if it wasn't?
+"When we experience the world and interact with people, we use all our senses," Cold Spring Harbor Laboratory Professor Stephen Shea says.
+"That's true for animals and humans." However, that's not always the case in developmental disorders like autism.
+These conditions can affect how the brain processes incoming information, making it difficult to interpret the social cues that drive conversations, dates, and other interpersonal activities.
+Exactly how such signals mix and influence each other in the brain isn't well understood.
+To shed light on the subject, Shea and graduate student Alexander Nowlan traced how smell and hearing interact in mouse brains during a maternal behavior called pup retrieval.
+This activity isn't limited to mothers. It can also be learned by surrogates.
+Think stepmoms and babysitters.
+"Pup retrieval is one of the most important things for mothers or caregivers. It requires the ability to smell and hear the pup. If these things are both important, that may mean they merge somewhere in the brain. One interesting thing we found was a projection from a location called the basal amygdala (BA)," explains Shea.
+In mice and humans, the BA is involved in learning and processing social and emotional signals.
+During pup retrieval, the team found that BA neurons carry smell signals to the brain's hearing center, the auditory cortex (AC). There, they merge with incoming sound signals and influence the animal's response to future sounds -- like pups' cries.
+Amazingly, when Shea's team blocked maternal mice from accessing smell signals, their pup retrieval response almost completely broke down.
+"We think what's reaching the AC is being filtered through social-emotional signals from BA neurons," Shea explains.
+"That processing can be impaired in autism and neurodegenerative conditions. We think many parts of the brain participate in this behavior and that it's very richly controlled."
+AD
+Shea's lab is now exploring how these brain regions connect and interact with one another.
+Their work may lead to a better understanding of how autism can affect a person's ability to interpret social cues.
+But that's just the beginning.
+"The idea that we found a neural circuit that may allow emotional processes to directly interact with perception is very exciting to me," Shea says. He's not alone there. His research might yet provide answers to one of humanity's oldest questions. How do our senses inform the ways we connect with one another and experience the world?

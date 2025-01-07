@@ -259,5 +259,7 @@ public class Main {
         finally {
             resource.close();
         }
+
+        factory.calculateUniqueWords("src/main/resources/txtexample.txt");
     }
 }

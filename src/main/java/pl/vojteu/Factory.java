@@ -12,14 +12,19 @@ import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
 import pl.vojteu.products.Chair;
 import pl.vojteu.products.Product;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.logging.*;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
+
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private String name;
     private LocalDateTime lastUpdated;
@@ -308,6 +313,31 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             }
         } catch (IOException e) {
             System.err.println("there is an error: " + e.getMessage());
+        }
+    }
+
+    public void calculateUniqueWords(String filePath){
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+
+            Map<String, Long> wordCounts = lines.stream()
+                    .flatMap(line -> Arrays.stream(line.split("\\s+")))
+                    .map(word -> word.toLowerCase().replaceAll("^[^a-zA-Z]+|[^a-zA-Z]+$", ""))
+                    .filter(word -> !word.isEmpty())
+                    .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+
+            List<String> uniqueWords = wordCounts.entrySet().stream()
+                    .filter(entry -> entry.getValue() == 1)
+                    .map(Map.Entry::getKey)
+                    .collect(Collectors.toList());
+
+            System.out.println("Unique words");
+            uniqueWords.forEach(System.out::println);
+            System.out.println(uniqueWords.size());
+        }
+        catch(IOException e){
+            LOGGER.severe("Error reading this file " + filePath);
+            e.printStackTrace();
         }
     }
 }
