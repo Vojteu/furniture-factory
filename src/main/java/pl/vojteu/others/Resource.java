@@ -1,4 +1,4 @@
-package pl.vojteu;
+package pl.vojteu.others;
 
 public class Resource implements AutoCloseable{
         private String name;

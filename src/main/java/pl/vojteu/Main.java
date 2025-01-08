@@ -25,6 +25,7 @@ import pl.vojteu.materials.Wood;
 import pl.vojteu.orders.MaterialOrder;
 import pl.vojteu.orders.Order;
 import pl.vojteu.orders.RetailerOrder;
+import pl.vojteu.others.Resource;
 import pl.vojteu.products.Product;
 
 import java.math.BigDecimal;

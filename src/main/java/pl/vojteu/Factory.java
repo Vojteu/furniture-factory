@@ -157,21 +157,17 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
 
     static {
         try {
-            // Console handler for logging to console
             ConsoleHandler consoleHandler = new ConsoleHandler();
             consoleHandler.setLevel(Level.ALL);
             consoleHandler.setFormatter(new SimpleFormatter());
 
-            // File handler for logging to a file
             FileHandler fileHandler = new FileHandler("word_processor.log", true); // Append to the log file
             fileHandler.setLevel(Level.ALL);
             fileHandler.setFormatter(new SimpleFormatter());
 
-            // Add handlers to the logger
             LOGGER.addHandler(consoleHandler);
             LOGGER.addHandler(fileHandler);
 
-            // Disable the default console logging from parent handlers
             LOGGER.setUseParentHandlers(false);
 
             LOGGER.setLevel(Level.ALL);
@@ -278,7 +274,6 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             } else {
                 chair.setMassageMode(true);
                 LOGGER.info("Massage mode activated.");
-//                LOGGER.info();
                 return true;
             }
         }
