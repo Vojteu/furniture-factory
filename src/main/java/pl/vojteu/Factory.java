@@ -15,6 +15,7 @@ import pl.vojteu.products.Product;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -155,20 +156,42 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     }
 
     static {
-        System.out.println("static block in Factory");
+        try {
+            // Console handler for logging to console
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setLevel(Level.ALL);
+            consoleHandler.setFormatter(new SimpleFormatter());
+
+            // File handler for logging to a file
+            FileHandler fileHandler = new FileHandler("word_processor.log", true); // Append to the log file
+            fileHandler.setLevel(Level.ALL);
+            fileHandler.setFormatter(new SimpleFormatter());
+
+            // Add handlers to the logger
+            LOGGER.addHandler(consoleHandler);
+            LOGGER.addHandler(fileHandler);
+
+            // Disable the default console logging from parent handlers
+            LOGGER.setUseParentHandlers(false);
+
+            LOGGER.setLevel(Level.ALL);
+        } catch (IOException e) {
+            System.err.println("Failed to set up logger: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public static void getCurrentStock(Map<String, Double> materialsMap, LocalDateTime whenUpdated) {
         if (materialsMap == null || materialsMap.isEmpty()) {
-            System.out.println("The materials map is empty or null.");
+            LOGGER.info("The materials map is empty or null.");
             return;
         }
 
-        System.out.println("The current stock of materials is:");
+        LOGGER.info("The current stock of materials is:");
         for (Map.Entry<String, Double> entry : materialsMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+            LOGGER.info(entry.getKey() + ": " + entry.getValue());
         }
-        System.out.println("Updated at: " + whenUpdated);
+        LOGGER.info("Updated at: " + whenUpdated);
     }
 
     public void useMaterial(String material, Double quantity, Map<String, Double> materialInventory)
@@ -177,7 +200,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             throw new MaterialNotAvailableException("Material '" + material + "' is not available or insufficient.");
         }
         materialInventory.put(material, materialInventory.get(material) - quantity);
-        System.out.println("Material '" + material + "' used: " + quantity + " units.");
+        LOGGER.info("Material '" + material + "' used: " + quantity + " units.");
     }
 
     public void addMaterial(Map<String, Double> materialsMap, String newMaterial, Double quantity)
@@ -206,12 +229,12 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     @Override
     public void addDiscount(Product product, Double discount) {
         product.setPrice(product .getPrice() - product.getPrice()*discount);
-        System.out.println("discount: " + discount*100 + "%" + " has been added to: " + product.getName());
+        LOGGER.info("discount: " + discount*100 + "%" + " has been added to: " + product.getName());
     }
 
     @Override
     public void whatProductIsThat(Product product) {
-        System.out.println(product.getName());
+        LOGGER.info(product.getName());
     }
 
     @Override
@@ -250,16 +273,17 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             Chair chair = (Chair) product;
             if (!mode) {
                 chair.setMassageMode(false);
-                System.out.println("Massage mode not activated.");
+                LOGGER.info("Massage mode not activated.");
                 return false;
             } else {
                 chair.setMassageMode(true);
-                System.out.println("Massage mode activated.");
+                LOGGER.info("Massage mode activated.");
+//                LOGGER.info();
                 return true;
             }
         }
         else{
-            System.out.println("it is not a Chair.");
+            LOGGER.info("it is not a Chair.");
             return false;
         }
     }
@@ -270,16 +294,16 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             Chair chair = (Chair) product;
             if (!mode) {
                 chair.setMassageMode(false);
-                System.out.println("Heated seats not activated.");
+                LOGGER.info("Heated seats not activated.");
                 return false;
             } else {
                 chair.setMassageMode(true);
-                System.out.println("Heated seats activated.");
+                LOGGER.info("Heated seats activated.");
                 return true;
             }
         }
         else{
-            System.out.println("it is not a Chair.");
+            LOGGER.info("it is not a Chair.");
             return false;
         }
     }
@@ -309,16 +333,17 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+                LOGGER.info(line);
             }
         } catch (IOException e) {
-            System.err.println("there is an error: " + e.getMessage());
+            LOGGER.severe("there is an error: " + e.getMessage());
         }
     }
 
     public void calculateUniqueWords(String filePath){
         try {
-            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            Path path = Paths.get(filePath);
+            List<String> lines = Files.readAllLines(path);
 
             Map<String, Long> wordCounts = lines.stream()
                     .flatMap(line -> Arrays.stream(line.split("\\s+")))
@@ -331,9 +356,14 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
                     .map(Map.Entry::getKey)
                     .collect(Collectors.toList());
 
-            System.out.println("Unique words");
+            LOGGER.info("Unique words");
             uniqueWords.forEach(System.out::println);
-            System.out.println(uniqueWords.size());
+            LOGGER.info("\nunique words count: " + uniqueWords.size());
+            Path inputFilePath = path;
+            Path outputFilePath = inputFilePath.resolveSibling("unique_words.txt");
+            Files.write(outputFilePath, uniqueWords);
+
+            LOGGER.info("Unique words written to: " + outputFilePath);
         }
         catch(IOException e){
             LOGGER.severe("Error reading this file " + filePath);
