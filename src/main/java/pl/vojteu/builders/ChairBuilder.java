@@ -6,6 +6,7 @@ import pl.vojteu.components.Seat;
 import pl.vojteu.products.Chair;
 
 public class ChairBuilder {
+
     private Long id;
     private String name;
     private Double price;
