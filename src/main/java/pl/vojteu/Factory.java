@@ -252,10 +252,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
 
     @Override
     public boolean isMaterialAvailable(Material material, double requiredQuantity) {
-        if(getMaterialsMap().get(material.getName()) >= requiredQuantity)
-            return true;
-        else
-            return false;
+        return getMaterialsMap().get(material.getName()) >= requiredQuantity;
     }
 
     @Override

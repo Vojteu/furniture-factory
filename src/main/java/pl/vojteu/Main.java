@@ -251,14 +251,10 @@ public class Main {
             System.out.println(string);
         }
 
-        Resource resource = new Resource("src/main/resources/testResource.txt");
-        try {
+        try(Resource resource = new Resource("src/main/resources/testResource.txt")) {
             resource.doWork();
         } catch (Exception e) {
             System.out.println("An exception occurred: " + e.getMessage());
-        }
-        finally {
-            resource.close();
         }
 
         factory.calculateUniqueWords("src/main/resources/txtexample.txt");
