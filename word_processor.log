@@ -1,0 +1,177 @@
+sty 08, 2025 1:40:20 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 1:41:38 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 1:41:51 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 3:19:28 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words
+sty 08, 2025 3:19:28 PM pl.vojteu.Factory calculateUniqueWords
+INFO: 
+unique words count: 143
+sty 08, 2025 3:19:28 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: assasg
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: sssa
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory calculateUniqueWords
+INFO: 
+unique words count: 143
+sty 08, 2025 3:22:30 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory getCurrentStock
+INFO: The current stock of materials is:
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory getCurrentStock
+INFO: Glue: 100.0
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory getCurrentStock
+INFO: Wood: 500.0
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory getCurrentStock
+INFO: Updated at: 2025-01-08T15:26:42.477471300
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory whatProductIsThat
+INFO: swivel office chair
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory addDiscount
+INFO: discount: 30.0% has been added to: wardrobe small
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory massageMode
+INFO: Massage mode activated.
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory heatedSeat
+INFO: Heated seats activated.
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: assasg
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: sssa
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory calculateUniqueWords
+INFO: 
+unique words count: 143
+sty 08, 2025 3:26:42 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory getCurrentStock
+INFO: The current stock of materials is:
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory getCurrentStock
+INFO: Glue: 100.0
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory getCurrentStock
+INFO: Wood: 500.0
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory getCurrentStock
+INFO: Updated at: 2025-01-08T17:19:25.001372700
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory whatProductIsThat
+INFO: swivel office chair
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory addDiscount
+INFO: discount: 30.0% has been added to: wardrobe small
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory massageMode
+INFO: Massage mode activated.
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory heatedSeat
+INFO: Heated seats activated.
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: coś tam coś tam
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: assasg
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: 
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: sssa
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory readFile
+INFO: s
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory calculateUniqueWords
+INFO: 
+unique words count: 143
+sty 08, 2025 5:19:25 PM pl.vojteu.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory getCurrentStock
+INFO: The current stock of materials is:
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory getCurrentStock
+INFO: Glue: 100.0
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory getCurrentStock
+INFO: Wood: 500.0
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory getCurrentStock
+INFO: Updated at: 2025-01-13T17:55:06.568782500
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory whatProductIsThat
+INFO: swivel office chair
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory addDiscount
+INFO: discount: 30.0% has been added to: wardrobe small
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory massageMode
+INFO: Massage mode activated.
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory heatedSeat
+INFO: Heated seats activated.
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: coś tam coś tam
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: 
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: coś tam coś tam
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: 
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: 
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: assasg
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: 
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: 
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: s
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: sssa
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory readFile
+INFO: s
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory calculateUniqueWords
+INFO: Unique words
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory calculateUniqueWords
+INFO: 
+unique words count: 143
+sty 13, 2025 5:55:06 PM pl.vojteu.furniturefactory.Factory calculateUniqueWords
+INFO: Unique words written to: src\main\resources\unique_words.txt
