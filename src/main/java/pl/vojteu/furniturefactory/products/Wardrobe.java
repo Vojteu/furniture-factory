@@ -1,11 +1,14 @@
 package pl.vojteu.furniturefactory.products;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.components.Door;
 
 public class Wardrobe extends Product {
 
     private String wardrobeKind;
     private Door doors;
+    private final static Logger LOGGER = LogManager.getLogger(Wardrobe.class);
 
     public Wardrobe(Long id, String name, Double price, Double manufacturingFactor, String wardrobeKind, Door doors) {
         super(id, name, price, manufacturingFactor);
@@ -31,7 +34,7 @@ public class Wardrobe extends Product {
 
     @Override
     protected void description() {
-        System.out.println("Wardrobe description: " + wardrobeKind);
+        LOGGER.info("Wardrobe description: " + wardrobeKind);
     }
 
     @Override

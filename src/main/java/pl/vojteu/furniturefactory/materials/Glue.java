@@ -1,10 +1,14 @@
 package pl.vojteu.furniturefactory.materials;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.math.BigDecimal;
 
 public class Glue extends Material {
 
     private String glueType;
+    private final static Logger LOGGER = LogManager.getLogger(Glue.class);
 
     public Glue(Long id, String name, BigDecimal price, String unit, String glueType) {
         super(id, name, price, unit);
@@ -21,7 +25,7 @@ public class Glue extends Material {
 
     @Override
     public void description() {
-        System.out.println("This class is named: " + getName() + " and the type is: " + getGlueType());
+        LOGGER.info("This class is named: " + getName() + " and the type is: " + getGlueType());
     }
 
     @Override

@@ -1,11 +1,14 @@
 package pl.vojteu.furniturefactory.components;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.interfaces.Shape;
 import pl.vojteu.furniturefactory.materials.Material;
 
 public class Door extends Component {
 
     private Shape shape;
+    private final static Logger LOGGER = LogManager.getLogger(Door.class);
 
     public Door(Material material, Shape shape) {
         super(material);
@@ -22,7 +25,7 @@ public class Door extends Component {
 
     @Override
     public void description() {
-        System.out.println("Door: Material = " + getMaterial().getName() + ", Shape = " + shape.getClass().getSimpleName());
+        LOGGER.info("Door: Material = " + getMaterial().getName() + ", Shape = " + shape.getClass().getSimpleName());
     }
 
     @Override

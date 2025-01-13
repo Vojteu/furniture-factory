@@ -1,5 +1,8 @@
 package pl.vojteu.furniturefactory.enums;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public enum Day {
 
     MONDAY("Start of the work week"),
@@ -7,6 +10,7 @@ public enum Day {
     SATURDAY("First day of the weekend"),
     SUNDAY("Second day of the weekend");
 
+    private final static Logger LOGGER = LogManager.getLogger(Day.class);
     private final String description;
 
     Day(String description) {
@@ -19,11 +23,11 @@ public enum Day {
 
     public void printGreeting() {
         switch (this) {
-            case MONDAY -> System.out.println("Ugh, it's Monday. Let's get to work!");
-            case FRIDAY -> System.out.println("It's Friday! Weekend is near!");
-            case SATURDAY -> System.out.println("It's Saturday.");
-            case SUNDAY -> System.out.println("Relax, it's Sunday.");
-            default -> System.out.println("Have a great day!");
+            case MONDAY -> LOGGER.info("Ugh, it's Monday. Let's get to work!");
+            case FRIDAY -> LOGGER.info("It's Friday! Weekend is near!");
+            case SATURDAY -> LOGGER.info("It's Saturday.");
+            case SUNDAY -> LOGGER.info("Relax, it's Sunday.");
+            default -> LOGGER.info("Have a great day!");
         }
     }
 }

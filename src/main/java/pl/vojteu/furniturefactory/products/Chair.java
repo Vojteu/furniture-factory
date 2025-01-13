@@ -1,5 +1,7 @@
 package pl.vojteu.furniturefactory.products;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.components.Seat;
 import pl.vojteu.furniturefactory.components.Arm;
 import pl.vojteu.furniturefactory.components.Back;
@@ -13,6 +15,7 @@ public class Chair extends Product{
     private Arm arm;
     private Back back;
     private boolean massageMode;
+    private final static Logger LOGGER = LogManager.getLogger(Chair.class);
 
     public Chair(Long id, String name, Double price, Double manufacturingFactor, String chairKind, Seat seat, Arm arm, Back back) {
         super(id, name, price, manufacturingFactor);
@@ -64,7 +67,7 @@ public class Chair extends Product{
 
     @Override
     protected void description() {
-        System.out.println("Chair description:");
+        LOGGER.info("Chair description");
         if (seat != null) seat.description();
         if (arm != null) arm.description();
         if (back != null) back.description();

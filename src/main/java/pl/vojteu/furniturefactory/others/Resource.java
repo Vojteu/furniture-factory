@@ -1,20 +1,24 @@
 package pl.vojteu.furniturefactory.others;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Resource implements AutoCloseable{
 
         private String name;
+        private final static Logger LOGGER = LogManager.getLogger(Resource.class);
 
         public Resource(String name) {
             this.name = name;
-            System.out.println("Resource " + name + " has been opened.");
+            LOGGER.info("Resource " + name + " has been opened.");
         }
 
         public void doWork() {
-            System.out.println("Resource " + name + " is being used.");
+            LOGGER.info("Resource " + name + " is being used.");
         }
 
         @Override
         public void close() throws Exception {
-            System.out.println("Resource " + name + " has been closed.");
+            LOGGER.info("Resource " + name + " has been closed.");
         }
 }

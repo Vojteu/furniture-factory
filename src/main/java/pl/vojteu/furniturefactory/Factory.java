@@ -1,5 +1,7 @@
 package pl.vojteu.furniturefactory;
 
+
+import org.apache.log4j.*;
 import pl.vojteu.furniturefactory.exceptions.checked.MachineNotFoundException;
 import pl.vojteu.furniturefactory.exceptions.checked.MaterialNotAvailableException;
 import pl.vojteu.furniturefactory.exceptions.checked.ProductNotFoundException;
@@ -22,13 +24,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
-import java.util.logging.*;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
 
-    private final static Logger LOGGER =
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private final static Logger LOGGER = LogManager.getLogger(Factory.class);
 
     private String name;
     private LocalDateTime lastUpdated;
@@ -160,23 +162,25 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
 
     static {
         try {
-            ConsoleHandler consoleHandler = new ConsoleHandler();
-            consoleHandler.setLevel(Level.ALL);
-            consoleHandler.setFormatter(new SimpleFormatter());
+            ConsoleAppender consoleAppender = new ConsoleAppender();
+            consoleAppender.setThreshold(Level.ALL);
+            consoleAppender.setLayout(new PatternLayout("%d [%t] %-5p %c - %m%n"));
+            consoleAppender.activateOptions();
 
-            FileHandler fileHandler = new FileHandler("word_processor.log", true); // Append to the log file
-            fileHandler.setLevel(Level.ALL);
-            fileHandler.setFormatter(new SimpleFormatter());
+            FileAppender fileAppender = new FileAppender();
+            fileAppender.setFile("word_processor.log");
+            fileAppender.setAppend(true);
+            fileAppender.setThreshold(Level.ALL);
+            fileAppender.setLayout(new PatternLayout("%d [%t] %-5p %c - %m%n"));
+            fileAppender.activateOptions();
 
-            LOGGER.addHandler(consoleHandler);
-            LOGGER.addHandler(fileHandler);
-
-            LOGGER.setUseParentHandlers(false);
-
+            LOGGER.addAppender(consoleAppender);
+            LOGGER.addAppender(fileAppender);
             LOGGER.setLevel(Level.ALL);
-        } catch (IOException e) {
-            System.err.println("Failed to set up logger: " + e.getMessage());
-            e.printStackTrace();
+
+        } catch (Exception e) {
+            LOGGER.info("Failed to set up logger: ");
+            LOGGER.error(e.getMessage());
         }
     }
 
@@ -217,7 +221,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         try {
             return br.readLine();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         } finally {
             br.close();
             fr.close();
@@ -331,7 +335,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
                 LOGGER.info(line);
             }
         } catch (IOException e) {
-            LOGGER.severe("there is an error: " + e.getMessage());
+            LOGGER.error("there is an error: " + e.getMessage());
         }
     }
 
@@ -361,8 +365,8 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             LOGGER.info("Unique words written to: " + outputFilePath);
         }
         catch(IOException e){
-            LOGGER.severe("Error reading this file " + filePath);
-            e.printStackTrace();
+            LOGGER.info("Error reading this file " + filePath);
+            LOGGER.error(e.getMessage());
         }
     }
 }
