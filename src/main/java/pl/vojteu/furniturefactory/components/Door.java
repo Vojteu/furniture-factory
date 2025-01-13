@@ -3,7 +3,7 @@ package pl.vojteu.furniturefactory.components;
 import pl.vojteu.furniturefactory.interfaces.Shape;
 import pl.vojteu.furniturefactory.materials.Material;
 
-public class Door extends Component{
+public class Door extends Component {
 
     private Shape shape;
 
