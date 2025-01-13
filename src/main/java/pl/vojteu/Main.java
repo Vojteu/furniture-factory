@@ -1,5 +1,7 @@
 package pl.vojteu;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.Factory;
 import pl.vojteu.furniturefactory.builders.ChairBuilder;
 import pl.vojteu.furniturefactory.builders.WardrobeBuilder;
@@ -34,6 +36,8 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
+
+    private final static Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
         List<Employee> employees = new ArrayList<>();
@@ -129,15 +133,12 @@ public class Main {
                 .setDoors(doors)
                 .build();
 
-        System.out.println();
-
-        System.out.println("prodcut1: " + product1);
-        System.out.println("prodcut2: " + product2);
-        System.out.println();
+        LOGGER.info("\nprodcut1: " + product1);
+        LOGGER.info("\nprodcut1: " + product2 + "\n");
 
         products.add(product1);
         products.add(product2);
-        System.out.println(products);
+        LOGGER.info(products);
 
         factory.whatProductIsThat(product1);
 
@@ -149,23 +150,23 @@ public class Main {
             factory.getProductPrice("swivel office chair", products);
         }
         catch(ProductNotFoundException e){
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
 
-        System.out.println(orderer1);
+        LOGGER.info(orderer1);
 
         Supplier supplier = new Supplier(1L, "Jan", "Jakis", material2);
         materialSuppliers.put(supplier.getMaterial().getName(), supplier.getName() + " " + supplier.getSurname());
         factory.setMaterialSuppliers(materialSuppliers);
         setOfSupplierMaterials.add(supplier.getName() + " " + supplier.getSurname());
 
-        System.out.println(factory.getMaterialSuppliers());
+        LOGGER.info(factory.getMaterialSuppliers());
 
         Order order1 = new MaterialOrder(1L, companyOrderer, 120, "L", material1);
         Order order2 = new MaterialOrder(2L, companyOrderer, 1000, "kg", material2);
 
-        System.out.println(order1);
-        System.out.println(order2);
+        LOGGER.info(order1);
+        LOGGER.info(order2);
 
         List<Order> retailerOrders = new ArrayList<>();
         List<Order> materialOrders = new ArrayList<>();
@@ -176,31 +177,31 @@ public class Main {
             if (retailerOrder1.getQuantity() < 0 || retailerOrder2.getQuantity() < 0) {
                 throw new InvalidQuantityException("Quantity cannot be negative.");
             }
-            System.out.println(retailerOrder1);
-            System.out.println(retailerOrder2);
+            LOGGER.info(retailerOrder1);
+            LOGGER.info(retailerOrder2);
             retailerOrders.add(retailerOrder1);
             retailerOrders.add(retailerOrder2);
         }
         catch(InvalidQuantityException e){
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
 
         double orderPrice = factory.countOrderCost(retailerOrders);
-        System.out.println(orderPrice);
+        LOGGER.info(orderPrice);
         if(orderPrice > factory.getDiscountBreakPoint()){
            orderPrice = factory.addDiscountOrder(retailerOrders, 0.2);
-            System.out.println("Discount added. The price with discount is: " + orderPrice);
+            LOGGER.info("Discount added. The price with discount is: " + orderPrice);
         }
         else{
-            System.out.println("discount not added.");
+            LOGGER.info("discount not added.");
         }
 
-        System.out.println(product3);
+        LOGGER.info(product3);
         factory.addDiscount(product3, 0.3);
 
-        System.out.println(factory.whoIsSupplier(material2));
+        LOGGER.info(factory.whoIsSupplier(material2));
 
-        System.out.println(factory.isMaterialAvailable(material2, 200.0));
+        LOGGER.info(factory.isMaterialAvailable(material2, 200.0));
 
         material1.description();
 
@@ -213,49 +214,48 @@ public class Main {
             factory.useMaterial(material1.getName(), 150.0, materialsMap);
         }
         catch(MaterialNotAvailableException e){
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
 
-        System.out.println(materialsMap);
+        LOGGER.info(materialsMap);
         try{
             factory.addMaterial(materialsMap, material1.getName(), 25000.0 );
         }
         catch(ProductionCapacityExceededException ex){
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage());
         }
         catch(NullPointerException e){
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
 
-        System.out.println(materialsMap);
-
+        LOGGER.info(materialsMap);
 
         try{
-            System.out.println(factory.getMachineStatus("machine"));
-//            System.out.println(factory.getMachineStatus("machine1"));
+            LOGGER.info(factory.getMachineStatus("machine"));
+            //LOGGER.info(factory.getMachineStatus("machine1"));
         }
         catch(MachineNotFoundException e){
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
 
         factory.readFile("src/main/resources/note.txt");
 
         for(Product product : products){
-            System.out.println(product);
+            LOGGER.info(product);
         }
 
         for (Map.Entry<String, Double> entry : materialsMap.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            LOGGER.info("Key: " + entry.getKey() + ", Value: " + entry.getValue());
         }
 
         for(String string : setOfSupplierMaterials){
-            System.out.println(string);
+            LOGGER.info(string);
         }
 
         try(Resource resource = new Resource("src/main/resources/testResource.txt")) {
             resource.doWork();
         } catch (Exception e) {
-            System.out.println("An exception occurred: " + e.getMessage());
+            LOGGER.info("An exception occurred: " + e.getMessage());
         }
 
         factory.calculateUniqueWords("src/main/resources/txtexample.txt");

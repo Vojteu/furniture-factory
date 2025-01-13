@@ -24,8 +24,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.logging.FileHandler;
-import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
@@ -179,8 +177,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             LOGGER.setLevel(Level.ALL);
 
         } catch (Exception e) {
-            LOGGER.info("Failed to set up logger: ");
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to set up logger: " + e.getMessage());
         }
     }
 
