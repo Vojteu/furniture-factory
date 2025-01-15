@@ -2,6 +2,7 @@ package pl.vojteu;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import pl.vojteu.furniturefactory.Factory;
 import pl.vojteu.furniturefactory.builders.ChairBuilder;
 import pl.vojteu.furniturefactory.builders.WardrobeBuilder;
@@ -39,6 +40,7 @@ public class Main {
 
     private final static Logger LOGGER = LogManager.getLogger(Main.class);
 
+
     public static void main(String[] args) throws Exception {
         List<Employee> employees = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
@@ -48,7 +50,6 @@ public class Main {
         Map<String, Double> materialsMap = new HashMap<>();
         Map<String, String> materialSuppliers = new HashMap<>();
         Set<String> setOfSupplierMaterials = new HashSet<>();
-
 
         Factory factory = new Factory("Furniture factory");
 

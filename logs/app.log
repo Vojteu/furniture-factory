@@ -1,0 +1,53 @@
+2025-01-13 22:08:49 INFO  Factory:190 - The current stock of materials is:
+2025-01-13 22:08:49 INFO  Factory:192 - Glue: 100.0
+2025-01-13 22:08:49 INFO  Factory:192 - Wood: 500.0
+2025-01-13 22:08:49 INFO  Factory:194 - Updated at: 2025-01-13T22:08:49.838462600
+2025-01-13 22:08:49 INFO  Main:140 - 
+prodcut1: Product{id=1, name='swivel office chair', price=50.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=1.3, chairKind='swivel chair', seat=Seat{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, arm=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, back=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} 
+2025-01-13 22:08:49 INFO  Main:141 - 
+prodcut1: Product{id=2, name='wardrobe big', price=200.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=0.5, wardrobeKind='clothes wardrobe', doors=Door{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} 
+
+2025-01-13 22:08:49 INFO  Main:145 - [Product{id=1, name='swivel office chair', price=50.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=1.3, chairKind='swivel chair', seat=Seat{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, arm=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, back=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} , Product{id=2, name='wardrobe big', price=200.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=0.5, wardrobeKind='clothes wardrobe', doors=Door{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} ]
+2025-01-13 22:08:49 INFO  Factory:237 - swivel office chair
+2025-01-13 22:08:49 INFO  Main:160 - Orderer{id=2, name='Konrad', surname='Kon', address=Address{streetName='Zlota', streetNumber='1c', city='Warszawa', state='Masovian'}, orders=null}
+2025-01-13 22:08:49 INFO  Main:167 - {Wood=Jan Jakis}
+2025-01-13 22:08:49 INFO  Main:172 - MaterialOrder{material={id=1, name='Glue', price='1', unit=L', glueType='Wood glue'}} quantity: 120L
+2025-01-13 22:08:49 INFO  Main:173 - MaterialOrder{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}} quantity: 1000kg
+2025-01-13 22:08:49 ERROR Main:190 - Quantity cannot be negative.
+2025-01-13 22:08:49 INFO  Main:194 - 0.0
+2025-01-13 22:08:49 INFO  Main:200 - discount not added.
+2025-01-13 22:08:49 INFO  Main:203 - Product{id=3, name='wardrobe small', price=50.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=0.5, wardrobeKind='clothes wardrobe', doors=Door{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} 
+2025-01-13 22:08:49 INFO  Factory:232 - discount: 30.0% has been added to: wardrobe small
+2025-01-13 22:08:49 INFO  Main:206 - Jan Jakis
+2025-01-13 22:08:49 INFO  Main:208 - true
+2025-01-13 22:08:49 INFO  Glue:28 - This class is named: Glue and the type is: Wood glue
+2025-01-13 22:08:49 INFO  Factory:277 - Massage mode activated.
+2025-01-13 22:08:49 INFO  Factory:297 - Heated seats activated.
+2025-01-13 22:08:49 ERROR Main:221 - Material 'Glue' is not available or insufficient.
+2025-01-13 22:08:49 INFO  Main:224 - {Glue=100.0, Wood=500.0}
+2025-01-13 22:08:49 ERROR Main:229 - Production capacity exceeded.
+2025-01-13 22:08:49 INFO  Main:235 - {Glue=100.0, Wood=500.0}
+2025-01-13 22:08:49 ERROR Main:242 - Machine with name machine not found
+2025-01-13 22:08:49 INFO  Factory:332 - coś tam coś tam
+2025-01-13 22:08:49 INFO  Factory:332 - 
+2025-01-13 22:08:49 INFO  Factory:332 - coś tam coś tam
+2025-01-13 22:08:49 INFO  Factory:332 - 
+2025-01-13 22:08:49 INFO  Factory:332 - 
+2025-01-13 22:08:49 INFO  Factory:332 - assasg
+2025-01-13 22:08:49 INFO  Factory:332 - 
+2025-01-13 22:08:49 INFO  Factory:332 - 
+2025-01-13 22:08:49 INFO  Factory:332 - s
+2025-01-13 22:08:49 INFO  Factory:332 - sssa
+2025-01-13 22:08:49 INFO  Factory:332 - s
+2025-01-13 22:08:49 INFO  Main:248 - Product{id=1, name='swivel office chair', price=50.0, height=100.0, width=60.0, color='Black', manufacturingFactor=1.3, chairKind='swivel chair', seat=Seat{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, arm=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}, back=Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} 
+2025-01-13 22:08:49 INFO  Main:248 - Product{id=2, name='wardrobe big', price=200.0, height=100.0, width=60.0, color='Brown', manufacturingFactor=0.5, wardrobeKind='clothes wardrobe', doors=Door{shape=Rectangle} Component{material={id=2, name='Wood', price='1', unit=kg', woodKind='oak'}}} 
+2025-01-13 22:08:49 INFO  Main:252 - Key: Glue, Value: 100.0
+2025-01-13 22:08:49 INFO  Main:252 - Key: Wood, Value: 500.0
+2025-01-13 22:08:49 INFO  Main:256 - Jan Jakis
+2025-01-13 22:08:49 INFO  Resource:13 - Resource src/main/resources/testResource.txt has been opened.
+2025-01-13 22:08:49 INFO  Resource:17 - Resource src/main/resources/testResource.txt is being used.
+2025-01-13 22:08:49 INFO  Resource:22 - Resource src/main/resources/testResource.txt has been closed.
+2025-01-13 22:08:49 INFO  Factory:355 - Unique words
+2025-01-13 22:08:49 INFO  Factory:357 - 
+unique words count: 143
+2025-01-13 22:08:49 INFO  Factory:362 - Unique words written to: src\main\resources\unique_words.txt
