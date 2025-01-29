@@ -1,6 +1,5 @@
 package pl.vojteu.furniturefactory;
 
-
 import org.apache.log4j.*;
 import pl.vojteu.furniturefactory.exceptions.checked.MachineNotFoundException;
 import pl.vojteu.furniturefactory.exceptions.checked.MaterialNotAvailableException;
@@ -24,6 +23,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
@@ -366,4 +366,11 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
             LOGGER.error(e.getMessage());
         }
     }
+
+//    public void productPrinter(){
+//        for(Product product : products){
+//            Consumer<Product> productPrinter = p -> System.out.println("Product Details: " + p);
+//            productPrinter
+//        }
+//    }
 }

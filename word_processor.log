@@ -681,3 +681,141 @@ unique words count: 143
 2025-01-15 20:22:54,943 [main] INFO  pl.vojteu.furniturefactory.Factory - 
 unique words count: 143
 2025-01-15 20:22:54,944 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 21:07:13,686 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 21:07:13,698 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 21:07:13,698 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 21:07:13,699 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T21:07:13.683220200
+2025-01-29 21:07:13,743 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 21:07:13,756 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 21:07:13,757 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 21:07:13,757 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 21:07:13,762 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 21:07:13,762 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:13,762 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 21:07:13,763 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:13,763 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:13,763 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 21:07:13,763 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:13,763 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:13,764 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 21:07:13,764 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 21:07:13,764 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 21:07:13,801 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 21:07:13,806 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 21:07:13,809 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 21:07:54,181 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 21:07:54,189 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 21:07:54,189 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 21:07:54,190 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T21:07:54.179931
+2025-01-29 21:07:54,225 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 21:07:54,236 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 21:07:54,237 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 21:07:54,237 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 21:07:54,239 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:54,240 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 21:07:54,241 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 21:07:54,241 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 21:07:54,241 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 21:07:54,270 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 21:07:54,276 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 21:07:54,277 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 22:20:07,463 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 22:20:07,481 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 22:20:07,481 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 22:20:07,483 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T22:20:07.460654400
+2025-01-29 22:20:07,526 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 22:20:07,536 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 22:20:07,537 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 22:20:07,537 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 22:20:07,539 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:20:07,539 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:20:07,539 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:20:07,539 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:20:07,539 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 22:20:07,540 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:20:07,571 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 22:20:07,577 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 22:20:07,577 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 22:35:52,219 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 22:35:52,234 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 22:35:52,234 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 22:35:52,234 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T22:35:52.219319600
+2025-01-29 22:35:52,266 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 22:35:52,281 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:35:52,313 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 22:35:52,313 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 22:35:52,313 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 22:36:30,708 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 22:36:30,708 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 22:36:30,708 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 22:36:30,724 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T22:36:30.708560500
+2025-01-29 22:36:30,739 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 22:36:30,755 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 22:36:30,786 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 22:36:30,802 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 22:36:30,802 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt
+2025-01-29 23:15:48,014 [main] INFO  pl.vojteu.furniturefactory.Factory - The current stock of materials is:
+2025-01-29 23:15:48,030 [main] INFO  pl.vojteu.furniturefactory.Factory - Glue: 100.0
+2025-01-29 23:15:48,030 [main] INFO  pl.vojteu.furniturefactory.Factory - Wood: 500.0
+2025-01-29 23:15:48,030 [main] INFO  pl.vojteu.furniturefactory.Factory - Updated at: 2025-01-29T23:15:48.014892700
+2025-01-29 23:15:48,061 [main] INFO  pl.vojteu.furniturefactory.Factory - swivel office chair
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - discount: 30.0% has been added to: wardrobe small
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - Massage mode activated.
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - Heated seats activated.
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - coś tam coś tam
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - assasg
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - sssa
+2025-01-29 23:15:48,069 [main] INFO  pl.vojteu.furniturefactory.Factory - s
+2025-01-29 23:15:48,100 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words
+2025-01-29 23:15:48,100 [main] INFO  pl.vojteu.furniturefactory.Factory - 
+unique words count: 143
+2025-01-29 23:15:48,100 [main] INFO  pl.vojteu.furniturefactory.Factory - Unique words written to: src\main\resources\unique_words.txt

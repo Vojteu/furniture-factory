@@ -2,7 +2,6 @@ package pl.vojteu;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
 import pl.vojteu.furniturefactory.Factory;
 import pl.vojteu.furniturefactory.builders.ChairBuilder;
 import pl.vojteu.furniturefactory.builders.WardrobeBuilder;
@@ -31,15 +30,16 @@ import pl.vojteu.furniturefactory.orders.Order;
 import pl.vojteu.furniturefactory.orders.RetailerOrder;
 import pl.vojteu.furniturefactory.others.Resource;
 import pl.vojteu.furniturefactory.products.Product;
+import pl.vojteu.furniturefactory.products.Wardrobe;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Main {
 
     private final static Logger LOGGER = LogManager.getLogger(Main.class);
-
 
     public static void main(String[] args) throws Exception {
         List<Employee> employees = new ArrayList<>();
@@ -260,5 +260,14 @@ public class Main {
         }
 
         factory.calculateUniqueWords("src/main/resources/txtexample.txt");
+
+        Consumer<Product> wardrobePriceModifier = product -> {
+            if (product instanceof Wardrobe) {
+                Wardrobe wardrobe = (Wardrobe) product;
+                wardrobe.setPrice(wardrobe.getPrice() * 0.9);
+                LOGGER.info("New price for " + wardrobe.getName() + ": $" + wardrobe.getPrice());
+            }
+        };
+        wardrobePriceModifier.accept(product2);
     }
 }
