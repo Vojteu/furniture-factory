@@ -36,6 +36,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -156,7 +157,7 @@ public class Main {
 
         LOGGER.info(orderer1);
 
-        Supplier supplier = new Supplier(1L, "Jan", "Jakis", material2);
+        ResourceSupplier supplier = new ResourceSupplier(1L, "Jan", "Jakis", material2);
         materialSuppliers.put(supplier.getMaterial().getName(), supplier.getName() + " " + supplier.getSurname());
         factory.setMaterialSuppliers(materialSuppliers);
         setOfSupplierMaterials.add(supplier.getName() + " " + supplier.getSurname());
@@ -269,5 +270,9 @@ public class Main {
             }
         };
         wardrobePriceModifier.accept(product2);
+
+        Supplier<Double> randomValue = () -> Math.random();
+
+        LOGGER.info(randomValue.get());
     }
 }

@@ -2,7 +2,7 @@ package pl.vojteu.furniturefactory.entity;
 
 import pl.vojteu.furniturefactory.materials.Material;
 
-public class Supplier {
+public class ResourceSupplier {
 
     private Long id;
     private String name;
@@ -10,7 +10,7 @@ public class Supplier {
     private Address address;
     private Material material;
 
-    public Supplier(Long id, String name, String surname, Material material) {
+    public ResourceSupplier(Long id, String name, String surname, Material material) {
         this.id = id;
         this.name = name;
         this.surname = surname;

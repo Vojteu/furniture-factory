@@ -8,7 +8,7 @@ import pl.vojteu.furniturefactory.exceptions.checked.ProductionCapacityExceededE
 import pl.vojteu.furniturefactory.entity.Company;
 import pl.vojteu.furniturefactory.entity.Department;
 import pl.vojteu.furniturefactory.entity.Employee;
-import pl.vojteu.furniturefactory.entity.Supplier;
+import pl.vojteu.furniturefactory.entity.ResourceSupplier;
 import pl.vojteu.furniturefactory.interfaces.*;
 import pl.vojteu.furniturefactory.machines.Machine;
 import pl.vojteu.furniturefactory.materials.Material;
@@ -23,7 +23,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
@@ -36,7 +35,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     private List<Department> departments;
     private List<Employee> employees;
     private List<Order> orders;
-    private List<Supplier> suppliers;
+    private List<ResourceSupplier> suppliers;
     private List<Material> materials;
     private List<Product> products;
     private List<Machine> machines;
@@ -98,11 +97,11 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         this.orders = orders;
     }
 
-    public List<Supplier> getSuppliers() {
+    public List<ResourceSupplier> getSuppliers() {
         return suppliers;
     }
 
-    public void setSuppliers(List<Supplier> suppliers) {
+    public void setSuppliers(List<ResourceSupplier> suppliers) {
         this.suppliers = suppliers;
     }
 
