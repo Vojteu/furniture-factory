@@ -3,6 +3,9 @@ package pl.vojteu.furniturefactory.components;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.materials.Material;
+import pl.vojteu.furniturefactory.materials.Wood;
+
+import java.math.BigDecimal;
 
 public class Arm extends Component {
 
@@ -12,6 +15,10 @@ public class Arm extends Component {
     public Arm(Material material, boolean adjustable) {
         super(material);
         this.adjustable = adjustable;
+    }
+
+    public Arm() {
+        super(new Wood(2L, "Wood", new BigDecimal(1), "kg", "oak"));
     }
 
     public boolean isAdjustable() {

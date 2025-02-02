@@ -3,6 +3,9 @@ package pl.vojteu.furniturefactory.components;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.materials.Material;
+import pl.vojteu.furniturefactory.materials.Wood;
+
+import java.math.BigDecimal;
 
 public class Back extends Component {
 
@@ -12,6 +15,10 @@ public class Back extends Component {
     public Back(Material material, double height) {
         super(material);
         this.height = height;
+    }
+
+    public Back() {
+        super(new Wood(2L, "Wood", new BigDecimal(1), "kg", "oak"));
     }
 
     public double getHeight() {

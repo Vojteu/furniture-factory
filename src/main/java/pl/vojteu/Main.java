@@ -33,6 +33,7 @@ import pl.vojteu.furniturefactory.others.Resource;
 import pl.vojteu.furniturefactory.products.Product;
 import pl.vojteu.furniturefactory.products.Wardrobe;
 
+import java.lang.reflect.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -40,6 +41,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -292,5 +294,85 @@ public class Main {
         Furniture<String> stringFurniture = new Furniture<>();
         stringFurniture.set("Hello");
         LOGGER.info(stringFurniture.get());
+
+        List<Product> expensiveProducts = products.stream()
+                .filter(p -> p.getPrice() > 400)
+                .collect(Collectors.toList());
+
+        List<String> productNames = products.stream()
+                .map(Product::getName)
+                .collect(Collectors.toList());
+
+        List<String> doorMaterials = products.stream()
+                .filter(Wardrobe.class::isInstance)
+                .map(Wardrobe.class::cast)
+                .map(w -> w.getDoors().getMaterial().getName())
+                .collect(Collectors.toList());
+
+        products.stream()
+                .peek(p -> LOGGER.info("Processing " + p))
+                .collect(Collectors.toList());
+
+        products.forEach(p -> LOGGER.info("Product: " + p.getName()));
+
+        Set<Product> productSet = products.stream().collect(Collectors.toSet());
+
+        long count = products.stream()
+                .filter(p -> p.getPrice() > 400)
+                .count();
+
+        boolean anyExpensive = products.stream().anyMatch(p -> p.getPrice() > 600);
+
+        boolean allExpensive = products.stream().allMatch(p -> p.getPrice() > 200);
+
+        Optional<Product> firstProduct = products.stream().findFirst();
+
+        Optional<Product> mostExpensiveProduct = factory.getMostExpensiveProduct(products);
+        mostExpensiveProduct.ifPresent(p -> LOGGER.info("Most Expensive Product: " + p.getName()));
+
+
+        try {
+            Class<?> chairClass = Class.forName("pl.vojteu.furniturefactory.products.Chair");
+
+            Field[] fields = chairClass.getDeclaredFields();
+            LOGGER.info("Fields:");
+            for (Field field : fields) {
+                LOGGER.info("Name: " + field.getName() + ", Type: " + field.getType() + ", Modifiers: " + Modifier.toString(field.getModifiers()));
+            }
+
+            Constructor<?>[] constructors = chairClass.getDeclaredConstructors();
+            LOGGER.info("\nConstructors:");
+            for (Constructor<?> constructor : constructors) {
+                LOGGER.info("Constructor: " + constructor.getName() + ", Modifiers: " + Modifier.toString(constructor.getModifiers()));
+                LOGGER.info("Parameters: " + Arrays.toString(constructor.getParameterTypes()));
+            }
+
+            Method[] methods = chairClass.getDeclaredMethods();
+            LOGGER.info("\nMethods:");
+            for (Method method : methods) {
+                LOGGER.info("Method: " + method.getName() + ", Return type: " + method.getReturnType() + ", Modifiers: " + Modifier.toString(method.getModifiers()));
+                LOGGER.info("Parameters: " + Arrays.toString(method.getParameterTypes()));
+            }
+
+            Constructor<?> constructor = chairClass.getDeclaredConstructor(Long.class, String.class, Double.class, Double.class, String.class, Seat.class, Arm.class, Back.class);
+            constructor.setAccessible(true);
+            Seat seat1 = new Seat();
+            Arm arm1 = new Arm();
+            Back back1 = new Back();
+            Object chairObject = constructor.newInstance(1L, "Luxury Chair", 200.0, 1.5, "Ergonomic", seat, arm, back);
+
+            Method descriptionMethod = chairClass.getDeclaredMethod("description");
+            descriptionMethod.setAccessible(true);
+            descriptionMethod.invoke(chairObject);
+
+            Method calculateCostMethod = chairClass.getDeclaredMethod("calculateManufacturingCost");
+            calculateCostMethod.setAccessible(true);
+            Object result = calculateCostMethod.invoke(chairObject);
+            LOGGER.info("\nManufacturing cost: " + result);
+
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
+            LOGGER.error(e.getMessage());
+        }
+
     }
 }

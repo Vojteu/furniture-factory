@@ -365,10 +365,10 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         }
     }
 
-//    public void productPrinter(){
-//        for(Product product : products){
-//            Consumer<Product> productPrinter = p -> System.out.println("Product Details: " + p);
-//            productPrinter
-//        }
-//    }
+    public Optional<Product> getMostExpensiveProduct(List<Product> products) {
+        return products.stream()
+                .max(Comparator.comparingDouble(Product::getPrice))
+                .map(Optional::of)
+                .orElse(Optional.empty());
+    }
 }

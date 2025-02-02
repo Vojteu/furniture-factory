@@ -4,6 +4,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pl.vojteu.furniturefactory.interfaces.Shape;
 import pl.vojteu.furniturefactory.materials.Material;
+import pl.vojteu.furniturefactory.materials.Wood;
+
+import java.math.BigDecimal;
 
 public class Seat extends Component {
 
@@ -13,6 +16,10 @@ public class Seat extends Component {
     public Seat(Material material, Shape shape) {
         super(material);
         this.shape = shape;
+    }
+
+    public Seat() {
+        super(new Wood(2L, "Wood", new BigDecimal(1), "kg", "oak"));
     }
 
     public Shape getShape() {
