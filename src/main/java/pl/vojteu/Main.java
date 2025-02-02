@@ -28,6 +28,7 @@ import pl.vojteu.furniturefactory.materials.Wood;
 import pl.vojteu.furniturefactory.orders.MaterialOrder;
 import pl.vojteu.furniturefactory.orders.Order;
 import pl.vojteu.furniturefactory.orders.RetailerOrder;
+import pl.vojteu.furniturefactory.others.Furniture;
 import pl.vojteu.furniturefactory.others.Resource;
 import pl.vojteu.furniturefactory.products.Product;
 import pl.vojteu.furniturefactory.products.Wardrobe;
@@ -36,6 +37,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class Main {
@@ -274,5 +277,21 @@ public class Main {
         Supplier<Double> randomValue = () -> Math.random();
 
         LOGGER.info(randomValue.get());
+
+        Function<Integer, Double> half = a -> a / 2.0;
+        LOGGER.info(half.apply(10));
+
+        Runnable r1 = () -> {
+            LOGGER.info("lambda function in runnable");
+        };
+        new Thread(r1).start();
+
+        Predicate<Integer> lesserthan = i -> (i<18);
+        LOGGER.info(lesserthan.test(10));
+
+        Furniture<String> stringFurniture = new Furniture<>();
+        stringFurniture.set("Hello");
+        System.out.println(stringFurniture.get());
+        LOGGER.info(stringFurniture.get());
     }
 }
