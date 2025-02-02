@@ -28,6 +28,7 @@ import pl.vojteu.furniturefactory.materials.Wood;
 import pl.vojteu.furniturefactory.orders.MaterialOrder;
 import pl.vojteu.furniturefactory.orders.Order;
 import pl.vojteu.furniturefactory.orders.RetailerOrder;
+import pl.vojteu.furniturefactory.others.ConnectionPool;
 import pl.vojteu.furniturefactory.others.Furniture;
 import pl.vojteu.furniturefactory.others.Resource;
 import pl.vojteu.furniturefactory.products.Product;
@@ -37,6 +38,10 @@ import java.lang.reflect.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -374,5 +379,24 @@ public class Main {
             LOGGER.error(e.getMessage());
         }
 
+        ConnectionPool pool = new ConnectionPool(5);
+        ExecutorService executor = Executors.newFixedThreadPool(7);
+
+        for (int i = 1; i <= 7; i++) {
+            executor.execute(new Factory(pool, i));
+        }
+
+        executor.shutdown();
+
+        CompletableFuture.runAsync(() -> LOGGER.info("Async Task 1 executed!"));
+        CompletableFuture.runAsync(() -> LOGGER.info("Async Task 2 executed!"));
+
+        try {
+            executor.awaitTermination(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        LOGGER.info("Main thread execution complete.");
     }
 }

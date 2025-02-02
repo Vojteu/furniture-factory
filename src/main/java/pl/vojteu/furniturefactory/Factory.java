@@ -14,6 +14,8 @@ import pl.vojteu.furniturefactory.machines.Machine;
 import pl.vojteu.furniturefactory.materials.Material;
 import pl.vojteu.furniturefactory.orders.Order;
 import pl.vojteu.furniturefactory.orders.RetailerOrder;
+import pl.vojteu.furniturefactory.others.Connection;
+import pl.vojteu.furniturefactory.others.ConnectionPool;
 import pl.vojteu.furniturefactory.products.Chair;
 import pl.vojteu.furniturefactory.products.Product;
 
@@ -25,10 +27,11 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable {
+public class Factory implements ProductManager, OrderManager, MaterialManager, Customizable, Adjustable, Runnable {
 
     private final static Logger LOGGER = LogManager.getLogger(Factory.class);
 
+    private int id;
     private String name;
     private LocalDateTime lastUpdated;
     private Company company;
@@ -43,6 +46,7 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     private Map<String, String> materialSuppliers;
 
     private final double discountBreakPoint = 2000.0;
+    ConnectionPool pool = new ConnectionPool(5);
 
     public Factory(String name) {
         this.name = name;
@@ -55,6 +59,11 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
         this.machines = new ArrayList<>();
         this.materialsMap = new HashMap<>();
         this.materialSuppliers = new HashMap<>();
+    }
+
+    public Factory(ConnectionPool connectionPool, int id){
+        this.id = id;
+        this.pool = connectionPool;
     }
 
     public String getName() {
@@ -370,5 +379,22 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
                 .max(Comparator.comparingDouble(Product::getPrice))
                 .map(Optional::of)
                 .orElse(Optional.empty());
+    }
+
+    @Override
+    public void run() {
+        try {
+            LOGGER.info("Factory is waiting for a connection...");
+
+            Connection conn = pool.acquireConnection();
+            LOGGER.info("connected " + conn.getName());
+
+            Thread.sleep(2000);
+
+            pool.releaseConnection(conn);
+            LOGGER.info("Factory connection released " + conn.getName());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }
