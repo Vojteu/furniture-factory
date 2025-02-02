@@ -244,12 +244,11 @@ public class Factory implements ProductManager, OrderManager, MaterialManager, C
     @Override
     public Double countOrderCost(List<Order> orders) {
         double sum = 0.0;
-        for(Order order : orders) {
-            if(order.getClass() == RetailerOrder.class) {
-                RetailerOrder retailerOrder = (RetailerOrder) order;
-                sum += retailerOrder.getQuantity() * retailerOrder.getProduct().getPrice();
-            }
-        }
+        sum = orders.stream()
+                .filter(order -> order instanceof RetailerOrder)
+                .map(order -> (RetailerOrder) order)
+                .mapToDouble(retailerOrder -> retailerOrder.getQuantity() * retailerOrder.getProduct().getPrice())
+                .sum();
         return sum;
     }
 

@@ -291,7 +291,6 @@ public class Main {
 
         Furniture<String> stringFurniture = new Furniture<>();
         stringFurniture.set("Hello");
-        System.out.println(stringFurniture.get());
         LOGGER.info(stringFurniture.get());
     }
 }
